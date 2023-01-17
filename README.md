@@ -2,6 +2,7 @@
 
 [![Github](https://img.shields.io/badge/language-python-red.svg)](https://www.python.org/downloads/)
 [![GitHub issues](https://img.shields.io/github/issues-raw/nandinimundra00/ASE-Homework-group22)](https://github.com/nandinimundra00/ASE-Homework-group22/issues)
+[![GitHub](https://img.shields.io/github/license/nandinimundra00/ASE-Homework-group22)](https://github.com/nandinimundra00/ASE-Homework-group22/blob/main/LICENSE.md)
 [![Github closed issues](https://img.shields.io/github/issues-closed-raw/nandinimundra00/ASE-Homework-group22)](https://github.com/nandinimundra00/ASE-Homework-group22/issues?q=is%3Aissue+is%3Aclosed)
 [![Github pull requests](https://img.shields.io/github/issues-pr/nandinimundra00/ASE-Homework-group22?color=red)](https://github.com/nandinimundra00/ASE-Homework-group22/pulls)
 [![Github closed pull requests](https://img.shields.io/github/issues-pr-closed/nandinimundra00/ASE-Homework-group22?color=blue)](https://github.com/nandinimundra00/ASE-Homework-group22/pulls?q=is%3Apr+is%3Aclosed)
@@ -35,7 +36,21 @@
 
     - Clone [this (LUA to Python) github repo](https://github.com/nandinimundra00/ASE-Homework-group22).
 
+## License
+This project is licensed under the terms of the MIT license. Please check LICENSE for more details.
 
 ## Roadmap
   - [List of Roadmap and their corresponding open issues](https://github.com/nandinimundra00/ASE-Homework-group22/issues/)
 
+## Documentation
+Help yourself by referring [here] (https://github.com/nandinimundra00/ASE-Homework-group22)
+
+## Contributors
+(Group 22)
+
+Nandini Mundra
+Nitesh Mishra
+Shubham Loya
+
+## Code of Conduct
+Everyone participating in the CSC 591 Automated Software Engineering Homework is expected to treat other people with respect and must follow guidelines of [Github Community - Code of Conduct] (https://docs.github.com/en/site-policy/github-terms/github-community-code-of-conduct).
