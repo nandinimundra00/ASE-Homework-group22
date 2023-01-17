@@ -48,9 +48,9 @@ Help yourself by referring [here] (https://github.com/nandinimundra00/ASE-Homewo
 ## Contributors
 (Group 22)
 
-Nandini Mundra
-Nitesh Mishra
-Shubham Loya
+- Nandini Mundra
+- Nitesh Mishra
+- Shubham Loya
 
 ## Code of Conduct
 Everyone participating in the CSC 591 Automated Software Engineering Homework is expected to treat other people with respect and must follow guidelines of [Github Community - Code of Conduct] (https://docs.github.com/en/site-policy/github-terms/github-community-code-of-conduct).
