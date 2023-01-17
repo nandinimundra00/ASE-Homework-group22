@@ -1,9 +1,5 @@
 # ASE-Homework-group22
 
-![GitHub contributors](https://img.shields.io/github/contributors/nandinimundra00/ASE-Homework-group22)
-
-
-
 [![Github](https://img.shields.io/badge/language-python-red.svg)](https://www.python.org/downloads/)
 [![GitHub issues](https://img.shields.io/github/issues-raw/nandinimundra00/ASE-Homework-group22)](https://github.com/nandinimundra00/ASE-Homework-group22/issues)
 [![Github closed issues](https://img.shields.io/github/issues-closed-raw/nandinimundra00/ASE-Homework-group22)](https://github.com/nandinimundra00/ASE-Homework-group22/issues?q=is%3Aissue+is%3Aclosed)
