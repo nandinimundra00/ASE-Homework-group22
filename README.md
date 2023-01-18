@@ -8,6 +8,7 @@
 [![Github closed pull requests](https://img.shields.io/github/issues-pr-closed/nandinimundra00/ASE-Homework-group22?color=blue)](https://github.com/nandinimundra00/ASE-Homework-group22/pulls?q=is%3Apr+is%3Aclosed)
 [![Github all contributors](https://img.shields.io/github/contributors/nandinimundra00/ASE-Homework-group22?color=green)](https://github.com/nandinimundra00/ASE-Homework-group22/graphs/contributors)
 ![GitHub forks](https://img.shields.io/github/forks/nandinimundra00/ASE-Homework-group22?style=social)
+![GitHub](https://img.shields.io/github/license/nandinimundra00/ASE-Homework-group22)
 
 
 <!-- ## Objective? -->
