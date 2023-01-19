@@ -9,6 +9,7 @@
 [![Github all contributors](https://img.shields.io/github/contributors/nandinimundra00/ASE-Homework-group22?color=green)](https://github.com/nandinimundra00/ASE-Homework-group22/graphs/contributors)
 ![GitHub forks](https://img.shields.io/github/forks/nandinimundra00/ASE-Homework-group22?style=social)
 ![GitHub](https://img.shields.io/github/license/nandinimundra00/ASE-Homework-group22)
+[![DOI](https://zenodo.org/badge/588330354.svg)](https://zenodo.org/badge/latestdoi/588330354)
 
 
 <!-- ## Objective? -->
