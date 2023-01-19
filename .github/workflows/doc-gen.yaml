@@ -27,7 +27,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          pipenv install
+          pipenv install pdoc3
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
@@ -36,14 +36,14 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with test_engine
         run: |
-          python src/main.py --go num
-          python src/main.py --go sym
-          python src/main.py --go rand
-          python src/main.py --go the
+          python -m src.main --go num
+          python -m src.main--go sym
+          python -m src.main --go rand
+          python -m src.main --go the
       - name: Run tests
         run: |
-          pipenv run coverage run src.main --go all
-          pipenv run coverage report
+          python -m coverage run src.main --go all
+          python -m coverage report
       - name: Get the xml output for coverage
         run: |
           coverage xml
