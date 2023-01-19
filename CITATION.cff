@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: ASE-Homework-group22
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Nandini
+    family-names: Mundra
+    email: nandinimundra00@gmail.com
+  - given-names: Shubham
+    family-names: Loya
+    email: shubhaml3521@gmail.com
+  - given-names: Nitesh
+    family-names: Mishra
+    email: nitesh31mishra@gmail.com
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.7552293
+repository-code: 'https://github.com/nandinimundra00/ASE-Homework-group22/'
+license: MIT
