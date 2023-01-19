@@ -36,10 +36,10 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with test_engine
         run: |
-          python src.main --go num
-          python src.main --go sym
-          python src.main --go rand
-          python src.main --eg the
+          python src/main.py --go num
+          python src/main.py --go sym
+          python src/main.py --go rand
+          python src/main.py --go the
       - name: Run tests
         run: |
           pipenv run coverage run src.main --go all
