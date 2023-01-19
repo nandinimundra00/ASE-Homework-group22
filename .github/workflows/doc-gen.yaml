@@ -29,6 +29,13 @@ jobs:
         pip install coverage
         pip install pdoc3
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi  
-    - name: Create documentation
+    - name: Test and code coverage with custom test engine
       run: |
-        pdoc src/ --output-dir Docs/ --force --html
+        python -m coverage run -m src.main -e ALL
+        codeCoverageStr=$(python -m coverage report | grep 'TOTAL')
+        codeCoverage=$(echo $codeCoverageStr | awk '{print $4}')
+        echo "Code coverage: $codeCoverage"
+        failureStr=$(python -m src.main -e ALL | grep -i "Number of failed tests:")
+        numFailures=${failureStr:0-1}
+        if [ $numFailures -gt 1 ]; then exit $numFailures; else exit 0; fi       
+    
