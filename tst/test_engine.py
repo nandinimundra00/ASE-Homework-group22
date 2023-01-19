@@ -54,4 +54,20 @@ def run_tests():
       return m1==m2 and .5 == rnd(m1,1) 
 
   eg("rand","generate, reset, regenerate same", rand_generate_reset_regenerate_same)
+  
+  def check_syms():
+      sym = SYM()
+      for x in ["a", "a", "a", "a", "b", "b", "c"]:
+          sym.add(x)
+      return "a" == sym.mid() and 1.379 == rnd(sym.div(), 3)
+
+  eg("sym", "check syms", check_syms)
+
+  def check_nums():
+      num = NUM()
+      for x in [1, 1, 1, 1, 2, 2, 3]:
+          num.add(x)
+      return 11/7 == num.mid() and 0.787 == rnd(num.div(), 3)
+
+  eg("num", "check nums", check_nums)
       
