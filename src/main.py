@@ -1,5 +1,5 @@
 import sys
-from Misc import *
+from .Misc import *
 sys.path.append("../ASE-Homework-group22/")
 from tst.test_engine import *
 
