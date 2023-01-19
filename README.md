@@ -11,7 +11,7 @@ This repository contains homework done by group 22 for ASE course(CSC 591)
 [![Github all contributors](https://img.shields.io/github/contributors/nandinimundra00/ASE-Homework-group22?color=green)](https://github.com/nandinimundra00/ASE-Homework-group22/graphs/contributors)
 ![GitHub forks](https://img.shields.io/github/forks/nandinimundra00/ASE-Homework-group22?style=social)
 ![GitHub](https://img.shields.io/github/license/nandinimundra00/ASE-Homework-group22)
-[![Run lint and tests](https://github.com/nandinimundra00/ASE-Homework-group22/actions/workflows/run-test.yml/badge.svg?branch=main)](https://github.com/nandinimundra00/ASE-Homework-group22/actions/workflows/run-test.yml)
+
 [![Code coverage](https://img.shields.io/badge/Code%20Coverage-97%25-green)](https://github.com/nandinimundra00/ASE-Homework-group22/blob/main/coverage_report.txt)
 [![DOI](https://zenodo.org/badge/588330354.svg)](https://zenodo.org/badge/latestdoi/588330354)
 
