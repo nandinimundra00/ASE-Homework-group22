@@ -1,6 +1,6 @@
 import sys
 from Misc import *
-sys.path.append("../ASE HW 1/")
+sys.path.append("../ASE-Homework-group22/")
 from tst.test_engine import *
 
 # the = cli(settings(sys.argv[1:]))
