@@ -53,4 +53,4 @@ jobs:
           files: ./coverage.xml
       - name: Create documentation
         run: |
-        pdoc src/ --output-dir Docs/ --force --html
+          pdoc src/ --output-dir Docs/ --force --html
