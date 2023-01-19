@@ -37,7 +37,7 @@ jobs:
       - name: Test with test_engine
         run: |
           python -m src.main --go num
-          python -m src.main--go sym
+          python -m src.main --go sym
           python -m src.main --go rand
           python -m src.main --go the
       - name: Run tests
