@@ -1,5 +1,7 @@
 # ASE-Homework-group22
 
+This repository contains homework done by group 22 for ASE course(CSC 591)
+
 [![Github](https://img.shields.io/badge/language-python-red.svg)](https://www.python.org/downloads/)
 [![GitHub issues](https://img.shields.io/github/issues-raw/nandinimundra00/ASE-Homework-group22)](https://github.com/nandinimundra00/ASE-Homework-group22/issues)
 [![GitHub](https://img.shields.io/github/license/nandinimundra00/ASE-Homework-group22)](https://github.com/nandinimundra00/ASE-Homework-group22/blob/main/LICENSE.md)
