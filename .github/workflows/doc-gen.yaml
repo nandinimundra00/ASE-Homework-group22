@@ -30,7 +30,7 @@ jobs:
           ./docs_generator.sh ${{ env.MODULE_PATHS }}  
       - name: Commit changes
         run: | 
-          git config --global user.name "NandiniMundra"
+          git config --global user.name "nandinimundra00"
           git config --global user.email "nandinimundra00@gmail.com"
           git add .
           git commit -m "Update documentation" -a || true
