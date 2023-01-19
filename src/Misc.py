@@ -1,5 +1,5 @@
 # Misc functions:
-from str_util import *
+from .str_util import *
 import math
 import sys
 import re
