@@ -36,13 +36,13 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with test_engine
         run: |
-          python3 src/main.py --go num
-          python3 src/main.py --go sym
-          python3 src/main.py --go rand
-          python3 src/main.py --eg the
+          python src.main --go num
+          python src.main --go sym
+          python src.main --go rand
+          python src.main --eg the
       - name: Run tests
         run: |
-          pipenv run coverage run src/main.py --go all
+          pipenv run coverage run src.main --go all
           pipenv run coverage report
       - name: Get the xml output for coverage
         run: |
@@ -51,3 +51,6 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           files: ./coverage.xml
+      - name: Create documentation
+        run: |
+        pdoc src/ --output-dir Docs/ --force --html

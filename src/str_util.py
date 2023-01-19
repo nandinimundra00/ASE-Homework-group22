@@ -36,8 +36,8 @@ def oo(t):
   print(o(t))
   return t 
 
-def coerce(s: str) -> int | float | bool | str:
-    def fun(s1: str) -> bool | str:
+def coerce(s: str):
+    def fun(s1: str):
         if s1 == 'true' or s1.lower() == 'true':
             return True
         if s1 == 'false' or s1.lower() == 'false':
