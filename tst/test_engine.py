@@ -71,3 +71,4 @@ def run_tests():
 
   eg("num", "check nums", check_nums)
       
+  main(the, getConstant("help"), egs)
