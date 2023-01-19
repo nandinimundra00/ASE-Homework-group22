@@ -31,11 +31,11 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi  
     - name: Test and code coverage with custom test engine
       run: |
-        python -m coverage run -m src.main -e ALL
+        python -m coverage run src/main.py -e all
         codeCoverageStr=$(python -m coverage report | grep 'TOTAL')
         codeCoverage=$(echo $codeCoverageStr | awk '{print $4}')
         echo "Code coverage: $codeCoverage"
-        failureStr=$(python -m src.main -e ALL | grep -i "Number of failed tests:")
+        failureStr=$(python src/main.py -e all | grep -i "Number of failed tests:")
         numFailures=${failureStr:0-1}
         if [ $numFailures -gt 1 ]; then exit $numFailures; else exit 0; fi       
     
