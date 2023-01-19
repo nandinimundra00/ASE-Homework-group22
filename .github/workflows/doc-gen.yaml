@@ -42,8 +42,8 @@ jobs:
           python -m src.main --go the
       - name: Run tests
         run: |
-          python -m coverage run -m src.main --go all
-          python -m coverage report
+          coverage run -m src.main --go all
+          #python -m coverage report
       - name: Get the xml output for coverage
         run: |
           coverage xml
