@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 env:
-  MODULE_PATHS: codebase test
+  MODULE_PATHS: src tst
   
 jobs:
   build:
