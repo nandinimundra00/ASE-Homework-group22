@@ -53,9 +53,12 @@ This project is licensed under the terms of the MIT license. Please check LICENS
 Help yourself by referring [here] (https://github.com/nandinimundra00/ASE-Homework-group22)
 
 ## Contributors
-(Group 22)
+Thanks goes to these wonderful people. 
 
-- Nandini Mundra<br/>
-- Nitesh Mishra<br/>
-- Shubham Loya<br/>
-
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/nandinimundra00"><img src="https://avatars.githubusercontent.com/u/55804665?v=4" width="100px;" alt=""/><br/><sub><b>Nandini Mundra</b></sub></a></td>
+    <td align="center"><a href="https://github.com/crmgogo"><img src="https://avatars.githubusercontent.com/u/52947925?v=4" width="100px;" alt=""/><br/><sub><b>Shubham Loya </b></sub></a></td>
+    <td align="center"><a href="https://github.com/nitesh31mishra"><img src="https://avatars.githubusercontent.com/u/54522260?v=4?s=100?v=4" width="100px;" alt=""/><br/><sub><b>Nitesh Mishra</b></sub></a></td>
+  </tr>
+</table>
