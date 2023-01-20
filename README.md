@@ -70,7 +70,7 @@ Thanks goes to these wonderful people.
 <table>
   <tr>
     <td align="center"><a href="https://github.com/nandinimundra00"><img src="https://avatars.githubusercontent.com/u/38012230?v=4" width="100px;" alt=""/><br/><sub><b>Nandini Mundra</b></sub></a></td>
-    <td align="center"><a href="https://github.com/crmgogo"><img alt=""/><br/><sub><b>Shubham Loya </b></sub></a></td>
+    <td align="center"><a href="https://github.com/crmgogo"><img src="https://media.licdn.com/dms/image/D5603AQHgm_YIaJdbzw/profile-displayphoto-shrink_100_100/0/1664333061862?e=1679529600&v=beta&t=XBiefkL5u-H_uSwWk475_jpiDMSYd6t3r-wseRrkFek" width="100px;" alt=""/><br/><sub><b>Shubham Loya </b></sub></a></td>
     <td align="center"><a href="https://github.com/nitesh31mishra"><img src="https://avatars.githubusercontent.com/u/54522260?v=4?s=100?v=4" width="100px;" alt=""/><br/><sub><b>Nitesh Mishra</b></sub></a></td>
   </tr>
 </table>
