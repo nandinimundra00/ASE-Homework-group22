@@ -42,6 +42,18 @@ This repository contains homework done by group 22 for ASE course(CSC 591)
   - ### Run Instructions
 
     - Clone [this (LUA to Python) github repo](https://github.com/nandinimundra00/ASE-Homework-group22).
+  
+    - Run:
+    
+      - Test:
+      
+        - To run all tests, run the command `python -m src.main --go ALL`
+        
+        - To run a specific test, run the command `python -m src.main --go <test-name>`
+          (Note: Test name we have num, sym, the, rand)
+        
+        - To see the help section, run the command `python -m src.main -help`
+        
 
 ## License
 This project is licensed under the terms of the MIT license. Please check LICENSE for more details.
