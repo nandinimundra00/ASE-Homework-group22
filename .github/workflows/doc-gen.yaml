@@ -51,6 +51,8 @@ jobs:
           codeCoverage=$(echo $codeCoverageStr | awk '{print $4}')
           echo "Code coverage: $codeCoverage"
           #python -m coverage report
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v2
       - name: Generate documentation  
         run: |
           chmod +x ./docs_generator.sh
