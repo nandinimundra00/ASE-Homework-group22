@@ -12,6 +12,7 @@ This repository contains homework done by group 22 for ASE course(CSC 591)
 ![GitHub forks](https://img.shields.io/github/forks/nandinimundra00/ASE-Homework-group22?style=social)
 ![GitHub](https://img.shields.io/github/license/nandinimundra00/ASE-Homework-group22)
 
+[![codecov](https://codecov.io/gh/nandinimundra00/ASE-Homework-group22/branch/main/graph/badge.svg)](https://codecov.io/gh/nandinimundra00/ASE-Homework-group22)
 ![Codecov](https://img.shields.io/codecov/c/github/nandinimundra00/ASE-Homework-group22)
 [![DOI](https://zenodo.org/badge/588330354.svg)](https://zenodo.org/badge/latestdoi/588330354)
 
