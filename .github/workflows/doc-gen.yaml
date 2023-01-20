@@ -16,6 +16,9 @@ on:
 permissions:
   contents: read
 
+env:
+  MODULE_PATHS: codebase test
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,6 +54,22 @@ jobs:
           codeCoverage=$(echo $codeCoverageStr | awk '{print $4}')
           echo "Code coverage: $codeCoverage"
           #python -m coverage report
+      - name: Generate documentation  
+        run: |
+          chmod +x ./docs_generator.sh
+          ./docs_generator.sh ${{ env.MODULE_PATHS }}  
+      - name: Commit changes
+        run: | 
+          git config --global user.name "nandinimundra00"
+          git config --global user.email "nandinimundra00@gmail.com"
+          git add .
+          git commit -m "Update documentation" -a || true
+          git push
+      - name: Publish to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./Docs
 #       - name: Get the xml output for coverage
 #         run: |
 #           coverage xml
