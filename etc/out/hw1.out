@@ -1,1 +1,8 @@
-Output awaited
+(base) D:\ncsu_work\ASE\ASE-Homework-group22-HW2 - Copy>python -m src.main --go all
+main options {'dump': False, 'go': 'all', 'help': False, 'seed': 937162211}
+{'dump': False, 'go': 'all', 'help': False, 'seed': 937162211}
+{:dump None :go None :help None :seed None }
+✅ pass: the
+✅ pass: rand
+✅ pass: sym
+✅ pass: num
