@@ -23,3 +23,6 @@ def keys(t):
     return k
   return sort(kap(t, temp))
 
+def push(t, x):
+    t.append(x)
+    return x
