@@ -89,3 +89,12 @@ def run_tests():
     
   eg("data", "read DATA csv", check_data)
 
+  def checkStats():
+    data = DATA('data/input.csv')
+    for k,cols in [('y',data.cols.y),('x',data.cols.x)]:
+      print(k,"mid",o(data.stats("mid",cols,2 )))
+      print("", "div",o(data.stats("div",cols,2)))
+
+  eg("stats", "stats from DATA", checkStats)
+
+  main(the, getConstant("help"), egs)
