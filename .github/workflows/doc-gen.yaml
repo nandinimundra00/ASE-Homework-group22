@@ -40,6 +40,7 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with test_engine
         run: |
+          cd HW1
           python -m HW1.src.main --go num
           python -m HW1.src.main --go sym
           python -m HW1.src.main --go rand
