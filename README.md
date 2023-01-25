@@ -21,6 +21,9 @@ This repository contains homework done by group 22 for ASE course(CSC 591)
 <!-- Converting a LUA based system into python based library.. -->
 
 
+### Github Pages:
+[Here](https://nandinimundra00.github.io/ASE-Homework-group22/)
+
 - **Built on**
 
   <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" width="40" height="40" />
