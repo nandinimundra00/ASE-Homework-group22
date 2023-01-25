@@ -1,0 +1,19 @@
+crmgogo@Shubhams-MacBook-Air-2 Hw2 % python3 -m src.main --go all
+main options {'dump': False, 'go': 'all', 'help': False, 'seed': 937162211}
+{'dump': False, 'go': 'all', 'help': False, 'seed': 937162211}
+{:dump None :go None :help None :seed None }
+✅ pass: the
+✅ pass: rand
+✅ pass: sym
+✅ pass: num
+✅ pass: csv
+✅ pass: data
+{'Lbs-': (2970.42, 'Lbs-'), 'Acc+': (15.57, 'Acc+'), 'Mpg+': (23.84, 'Mpg+')}
+y mid {:Lbs- None :Acc+ None :Mpg+ None }
+{'Lbs-': (846.84, 'Lbs-'), 'Acc+': (2.76, 'Acc+'), 'Mpg+': (8.34, 'Mpg+')}
+ div {:Lbs- None :Acc+ None :Mpg+ None }
+{'Clndrs': (5.45, 'Clndrs'), 'Volume': (193.43, 'Volume'), 'Model': (76.01, 'Model'), 'origin': (1, 'origin')}
+x mid {:Clndrs None :Volume None :Model None :origin None }
+{'Clndrs': (1.7, 'Clndrs'), 'Volume': (104.27, 'Volume'), 'Model': (3.7, 'Model'), 'origin': (1.33, 'origin')}
+ div {:Clndrs None :Volume None :Model None :origin None }
+✅ pass: stats
