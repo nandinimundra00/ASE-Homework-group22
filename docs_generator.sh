@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 MODULE_PATHS=$@
-SOURCE_DIR=Docs/source
-BUILD_DIR=Docs/build
+SOURCE_DIR=docs/source
+BUILD_DIR=docs/build
 
 
 for MODULE_PATH in $MODULE_PATHS
