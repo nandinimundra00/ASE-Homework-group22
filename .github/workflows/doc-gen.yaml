@@ -41,13 +41,13 @@ jobs:
       - name: Test with test_engine
         run: |
           cd HW1
-          python -m HW1.src.main --go num
-          python -m HW1.src.main --go sym
-          python -m HW1.src.main --go rand
-          python -m HW1.src.main --go the
+          python -m src.main --go num
+          python -m src.main --go sym
+          python -m src.main --go rand
+          python -m src.main --go the
       - name: Run tests
         run: |
-          python -m coverage run -m HW1.src.main --go all
+          python -m coverage run -m src.main --go all
           codeCoverageStr=$(python -m coverage report | grep 'TOTAL')
           codeCoverage=$(echo $codeCoverageStr | awk '{print $4}')
           echo "Code coverage: $codeCoverage"
