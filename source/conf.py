@@ -1,6 +1,5 @@
 # Configuration file for the Sphinx documentation builder.
 #
-#
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 import os
@@ -10,11 +9,9 @@ sys.path.insert(0, os.path.abspath('../../'))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 project = 'Numerical Analysis(Lua to Python)'
-copyright = 'Nandini Mundra Nitesh Mishra'\
-    'Shubham Loya'
-author = 'Nandini Mundra Nitesh Mishra'\
-    'Shubham Loya'
-release = 'v1.0'
+copyright = 'Nandini Mundra Nitesh Mishra Shubham Loya'
+author = 'Nandini Mundra Nitesh Mishra Shubham Loya'
+release = '1.1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
