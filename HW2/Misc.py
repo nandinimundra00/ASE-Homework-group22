@@ -50,3 +50,13 @@ def rnd(n, nPlaces):
 def push(t, x):
     t[1+len(t)] = x
     return x
+
+def CSV(fname, fun):
+  sep = "([^" + "\," + "]+"
+  with open(fname) as file_obj:
+    reader_obj = reader(file_obj)
+    for row in reader_obj:
+      t = {}
+      for element in row:
+        t[str(1 + len(t))] = coerce(element)
+      fun(t)
