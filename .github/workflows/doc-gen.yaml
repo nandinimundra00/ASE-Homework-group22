@@ -14,7 +14,7 @@ on:
   - pull_request
 
 env:
-  MODULE_PATHS: src tst
+  MODULE_PATHS: HW2/src HW2/tst
   
 jobs:
   build:
@@ -57,9 +57,8 @@ jobs:
         uses: codecov/codecov-action@v2
       - name: Generate documentation  
         run: |
-          cd HW2
-          chmod +x ./../docs_generator.sh
-          ./../docs_generator.sh ${{ env.MODULE_PATHS }}  
+          chmod +x ./docs_generator.sh
+          ./docs_generator.sh ${{ env.MODULE_PATHS }}  
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
