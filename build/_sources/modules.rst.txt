@@ -1,7 +1,6 @@
-tst
-===
+data
+====
 
 .. toctree::
    :maxdepth: 4
 
-   tst
