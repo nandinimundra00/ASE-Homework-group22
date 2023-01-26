@@ -14,7 +14,7 @@ on:
   - pull_request
 
 env:
-  MODULE_PATHS: HW2/src HW2/tst
+  MODULE_PATHS: HW2/src HW2/tst HW2/data
   
 jobs:
   build:
