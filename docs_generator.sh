@@ -4,6 +4,7 @@ MODULE_PATHS=$@
 SOURCE_DIR=docs/source
 BUILD_DIR=docs/build
 
+echo MODULE_PATHS
 
 for MODULE_PATH in $MODULE_PATHS
 do
