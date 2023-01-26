@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>src.list_util &#8212; Numerical Analysis(Lua to Python) 1.1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/classic.css" />
+    
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Numerical Analysis(Lua to Python) 1.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">src.list_util</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for src.list_util</h1><div class="highlight"><pre>
+<span></span><span class="c1">#List functions </span>
+<div class="viewcode-block" id="map"><a class="viewcode-back" href="../../src.html#src.list_util.map">[docs]</a><span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{}):</span>
+  <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">fun</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+    <span class="n">v</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">k</span> <span class="k">if</span> <span class="n">k</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+    <span class="n">u</span><span class="p">[</span><span class="n">temp</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+  <span class="k">return</span> <span class="n">u</span></div>
+
+<div class="viewcode-block" id="kap"><a class="viewcode-back" href="../../src.html#src.list_util.kap">[docs]</a><span class="k">def</span> <span class="nf">kap</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">fun</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="p">{}):</span>
+  <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">v</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">k</span> <span class="k">if</span> <span class="n">k</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">))</span>
+    <span class="n">u</span><span class="p">[</span><span class="n">temp</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+  <span class="k">return</span> <span class="n">u</span></div>
+
+<div class="viewcode-block" id="sort"><a class="viewcode-back" href="../../src.html#src.list_util.sort">[docs]</a><span class="k">def</span> <span class="nf">sort</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">fun</span><span class="p">):</span>
+  <span class="n">t</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">key</span> <span class="o">=</span> <span class="n">fun</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">t</span></div>
+
+<div class="viewcode-block" id="keys"><a class="viewcode-back" href="../../src.html#src.list_util.keys">[docs]</a><span class="k">def</span> <span class="nf">keys</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">temp</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">k</span>
+  <span class="k">return</span> <span class="n">sort</span><span class="p">(</span><span class="n">kap</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">temp</span><span class="p">))</span></div>
+</pre></div>
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Numerical Analysis(Lua to Python) 1.1.0 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">src.list_util</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright Nandini Mundra Nitesh Mishra Shubham Loya.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
+    </div>
+  </body>
+</html>
