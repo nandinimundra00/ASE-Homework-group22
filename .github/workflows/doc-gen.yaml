@@ -58,17 +58,17 @@ jobs:
       - name: Generate documentation  
         run: |
           cd HW2
-          chmod +x ./docs_generator.sh
-          ./docs_generator.sh ${{ env.MODULE_PATHS }}  
+          chmod +x ../docs_generator.sh
+          ../docs_generator.sh ${{ env.MODULE_PATHS }}  
       - name: Publish to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ../docs
 #       - name: Get the xml output for coverage
 #         run: |
 #           coverage xml
 #       - name: Upload coverage to Codecov
 #         uses: codecov/codecov-action@v3
 #         with:
-#           files: ./coverage.xml
+#           files: ../coverage.xml
