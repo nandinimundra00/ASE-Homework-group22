@@ -22,7 +22,7 @@ This repository contains homework done by group 22 for ASE course(CSC 591)
 
 
 ### Github Pages:
-[Here](https://nandinimundra00.github.io/ASE-Homework-group22/)
+[Documentation](https://nandinimundra00.github.io/ASE-Homework-group22/py-modindex.html)
 
 - **Built on**
 
