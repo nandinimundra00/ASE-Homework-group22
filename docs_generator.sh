@@ -2,7 +2,7 @@
 
 MODULE_PATHS=$@
 SOURCE_DIR=docs/source
-BUILD_DIR=docs/build
+BUILD_DIR=docs
 
 echo MODULE_PATHS
 
