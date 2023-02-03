@@ -1,18 +1,9 @@
-#List functions 
-def map(t, fun, u = {}):
-  for k, v in t.items():
-    print(fun(v))
-    v, k = fun(v)
-    temp = k if k else (1 + len(u))
-    u[temp] = v
-  return u
-
-def kap(t, fun, u = {}):
-  for k, v in t.items():
-    v, k = fun(k, v)
-    temp = k if k else (1 + len(u))
-    u[temp] = v
-  return u
+def kap(t, fun):
+    u = {}
+    for k, v in enumerate(t):
+        v, k = fun(k, v)
+        u[k or (1 + len(u))] = v
+    return u
 
 def sort(t, fun):
   t = sorted(t, key = fun)
@@ -22,3 +13,8 @@ def keys(t):
   def temp(k):
     return k
   return sort(kap(t, temp))
+
+def lt(x):
+  def sort_func(a, b):
+    return a[x] < b[x]
+  return sort_func
