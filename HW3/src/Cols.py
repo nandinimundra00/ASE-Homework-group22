@@ -23,3 +23,9 @@ class COLS:
                     self.x.append(col)
                 if re.match("!$", s):
                     self.klass = col
+
+
+    def add(self, row) -> None:
+        for _, names in enumerate(zip(self.x, self.y)):
+            for i, col in enumerate(names):
+                col.add(row.cells[i])             
