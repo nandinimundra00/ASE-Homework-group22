@@ -1,4 +1,5 @@
 # Misc functions:
+from typing import Any, cast
 import csv
 from csv import reader
 from src.str_util import *
@@ -7,6 +8,8 @@ import math
 import sys
 import re
 import os
+import io
+import random
 
 def settings(s):
   t = {}
@@ -60,3 +63,34 @@ def CSV(fname, fun):
       for element in row:
         t[str(1 + len(t))] = coerce(element)
       fun(t)
+
+
+
+def cosine(a, b, c):
+    den = 1 if c == 0 else 2 * c
+    x1 = (a**2 + c**2 - b**2) / den
+    x2 = max(0, min(1, x1))
+    y = abs((a**2 - x2**2)) ** 0.5
+    return x2, y
+
+
+def any(t):
+  return random.choice(t)
+
+def many(t, n):
+  return [any(t) for i in range(n)]
+
+
+
+def show(node, what, cols, n_places, lvl=0):
+    if node:
+        lvl = lvl or 0
+        print("| " * lvl, str(len(node["data"].rows)), " ")
+        if not node.get("left", None) or lvl == 0:
+            print(o(node["data"].stats("mid", node["data"].cols.y, n_places)))
+        else:
+            print("")
+        show(node.get("left", None), what, cols, n_places, lvl + 1)
+        show(node.get("right", None), what, cols, n_places, lvl + 1)
+
+
