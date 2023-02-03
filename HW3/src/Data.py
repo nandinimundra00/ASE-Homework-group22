@@ -65,3 +65,52 @@ class DATA:
         data = DATA(self.cols.names)
         _ = list(map(data.add, init))
         return data
+
+    def sway(self, rows=None, min=None, cols=None, above=None):
+        rows = rows or self.rows
+        min = min or len(rows) ** 0.5
+        cols = cols or self.cols.x
+        node = {"data": self.clone(rows)}
+
+        if len(rows) > 2 * min:
+            left, right, node["A"], node["B"], node["min"], _ = self.half(rows, cols, above)
+            
+            if self.better(node["B"], node["A"]):
+                left, right, node["A"], node["B"] = right, left, node["B"], node["A"]
+           
+            node["left"] = self.sway(left, min, cols, node["A"])
+        
+        if "left" not in node:
+            node["left"] = None
+        if "right" not in node:
+            node["right"] = None
+        return node
+
+    def around(self, row1, rows=None, cols=None):
+        if rows is None:
+            rows = self.rows
+
+        def distance(row2):
+            return {"row": row2, "dist": self.dist(row1, row2, cols)}
+
+        row_sorted = sorted(map(distance, rows), key=lambda x: x["dist"])
+        return row_sorted
+
+    def cluster(self, rows=None, min_size=None, cols=None, above=None):
+        if rows is None:
+            rows = self.rows
+        min_size = min_size or (len(rows)) ** 0.5
+        if cols is None:
+            cols = self.cols.x
+        node = {"data": self.clone(rows)}  # xxx cloning
+        if len(rows) > 2 * min_size:
+            left, right, node["A"], node["B"], node["mid"], _ = self.half(
+                rows, cols, above
+            )
+            node["left"] = self.cluster(left, min_size, cols, node["A"])
+            node["right"] = self.cluster(right, min_size, cols, node["B"])
+        if "left" not in node:
+            node["left"] = None
+        if "right" not in node:
+            node["right"] = None
+        return node
