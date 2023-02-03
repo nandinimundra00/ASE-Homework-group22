@@ -3,14 +3,20 @@ import math
 
 
 class SYM():
-  def __init__(self, at=0, txt=""):
+  def __init__(self, at=None, txt=None):
     s = "SYM"
     self.n = 0
     self.has = {}
     self.mode = None
     self.most = 0
-    self.at = at
-    self.txt = txt
+    if at:
+        self.at = at
+    else:
+        self.at = 0
+    if txt:
+        self.txt = txt
+    else:
+        self.txt = ""
 
   def mid(self):
     return self.mode
@@ -34,3 +40,12 @@ class SYM():
 
   def rnd(n):
     return n
+
+  def dist(self, s1, s2):
+    if s1 == "?" and s2 == "?":
+      return 1
+    elif s1 == s2:
+      return 0
+    else:
+      return 1
+  
