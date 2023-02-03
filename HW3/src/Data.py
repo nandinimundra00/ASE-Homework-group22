@@ -1,33 +1,46 @@
 from src.Misc import *
 from src.Cols import *
 from src.Row import *
+from src.list_util import *
+from src.consts import *
+from operator import itemgetter
 
 class DATA:
-    def __init__(self, src=None):
-        self.rows = []
+    def __init__(self, src=[]):
         self.cols = None
-        fun = lambda x: self.add(x)
+        self.rows = []
+        self.n = 0
         if isinstance(src, str):
-            CSV(src, fun)
-        elif src:
-            for x in src:
-                fun(x)
-
-    def add(self, t):
-        if hasattr(self, 'cols') and self.cols!=None:
-            t = t.cells if hasattr(t, 'cells') else ROW(t)
-            self.rows.append(t)
-            self.cols.add(t)
+            self.csv(src)
         else:
-            self.cols = COLS(t)
+            self.add(src)
 
-    def clone(self, init=None):
-        data = DATA({self.cols.names})
-        for x in init or []:
-            data.add(x)
-        return data
+    def add(self, val):
+        if not self.cols:
+            self.cols = COLS(val)
 
-    def stats(self, what=None, cols=None, nPlaces=None):
+        else:
+            row = ROW(val)
+            self.rows.append(row.cells)
+                
+            for valX in self.cols.x:
+                valX.add(row.cells[valX.at])
+
+            for valY in self.cols.y:
+                valY.add(row.cells[valY.at])
+
+    def csv(self, file: str):
+        with open(file, "r") as csv:
+            filelines = csv.readlines()
+            for line in filelines:
+                row_split_lines = line.replace("\n", "").rstrip().split(",")
+                row_split_lines = [coerce(i) for i in row_split_lines]
+                self.add(row_split_lines)
+                self.n += len(row_split_lines)
+
+    def stats(self, what, cols, n_places):
         def fun(k, col):
-            return round(getattr(col, what or "mid")(), nPlaces), col.txt
-        return {cols[i].txt: fun(i, cols[i]) for i in range(len(cols))}
+            callable = getattr(col, what)
+            return col.rnd(callable(), n_places), col.txt
+
+        return kap(cols, fun)
