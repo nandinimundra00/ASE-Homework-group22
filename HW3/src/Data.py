@@ -114,3 +114,27 @@ class DATA:
         if "right" not in node:
             node["right"] = None
         return node
+    
+    def half(self, rows=None, cols=None, above=None):
+        
+        if rows is None:
+            rows = self.rows
+        
+        def distD(row1, row2):
+            return self.dist(row1, row2, cols)
+
+        def project(row):
+            return {"row": row,"dist": cosine(distD(row, A), distD(row, B), c),}
+
+        some = many(rows, 512)
+        A = above or any(some)
+        B = self.around(A, some)[int(0.95 * len(rows))]["row"]
+        c = distD(A, B)
+        left, right, mid = [], [], None
+        for n, tmp in enumerate(sorted(list(map(project, rows)), key=lambda x: x["dist"])):
+            if n <= len(rows) / 2:
+                left.append(tmp["row"])
+                mid = tmp["row"]
+            else:
+                right.append(tmp["row"])
+        return left, right, A, B, mid, c
