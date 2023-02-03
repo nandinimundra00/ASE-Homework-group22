@@ -4,33 +4,28 @@ def fmt(sControl, *args):
   return sControl.format(*args)
 
 def o(t):
-  if (type(t) !=  dict and type(t).__module__ == "__builtin__"):
-    return str(t)
-  if(type(t).__module__ != "__builtin__" and type(t) != dict):
-    newDictionary = (vars(t))
-    newDictionary.pop('_has')
-    return newDictionary
+    if type(t) != dict and type(t) != list:
+        return str(t)
 
-  print(t)
-  def show(k,v):
-    first = k[0]
-    if(str(first)!="_"):
-      if(type(v) == dict):
-        v = o(v)
-        if(len(t) == 0):
-          return ":"+str(k)+str(v)
+    def fun(k, v):
+        if str(k).find("_") != 0:
+            v = o(v)
+            return ":" + str(k) + " " + o(v)
+
         else:
-          return str(v)
-  u={}
-  for k,v in t.items():
-    u_len = len(u)
-    u[k] = show(k,v)
-  if len(t)==0:
-    u = sorted(u)
-  output = ""
-  for key in u:
-    output = output + ":" + key + " " + str(u[key]) + " "
-  return "{" + output + "}"
+            return False
+
+    array = []
+    if type(t) == dict:
+        for key in t:
+            output = fun(key, t[key])
+            if output:
+                array.append(output)
+            array.sort()
+    elif type(t) == list:
+        array = t
+    return "{" + " ".join(str(val) for val in array) + "}"
+
   
 def oo(t):
   print(o(t))
@@ -51,3 +46,6 @@ def coerce(s: str):
     except ValueError:
         val = fun(re.search('^\s*(.+?)\s*$', s).group(1))
     return val
+
+
+
