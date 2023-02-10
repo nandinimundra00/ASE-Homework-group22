@@ -6,29 +6,7 @@ from src.consts import *
 from operator import itemgetter
 
 class DATA:
-    # def __init__(self, src):
-    #     self.cols = None
-    #     self.rows = []
-    #     self.n = 0
-    #     if isinstance(src, str):
-    #         self.csv(src)
-    #     else:
-    #         if src is None:
-    #             src = []
-    #         self.add(src)
-
-    # def add(self, ele):
-    #     if not self.cols:
-    #         self.cols = COLS(ele)
-
-    #     else:
-    #         row = ROW(ele)
-    #         self.rows.append(row.cells)
-    #         for td in self.cols.x:
-    #             td.add(row.cells[td.at])
-
-    #         for td in self.cols.y:
-    #             td.add(row.cells[td.at])
+   
     
     def __init__(self, src):
         self.rows = []
