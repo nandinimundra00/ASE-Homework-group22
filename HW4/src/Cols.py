@@ -10,22 +10,29 @@ class COLS:
         self.klass = None
         self.x = []
         self.y = []
+
         for c, s in enumerate(names):
-            if re.match("^[A-Z]*", s):
+            s = str(s)
+            if re.match(r"^[A-Z]+", s):
+                print("num", s)
                 col = NUM(c, s)
             else:
+                print("sym", s)
                 col = SYM(c, s)
             self.all.append(col)
+
             if not re.match(r".*X$", s):
-                if (re.match(r".*\+$", s) or re.match(r".*\-$", s) or re.match(r".*\!$", s)):
+                if (
+                    re.match(r".*\+$", s) or re.match(r".*\-$", s) or re.match(r".*\!$", s)
+                ):
                     self.y.append(col)
                 else:
                     self.x.append(col)
+
                 if re.match("!$", s):
                     self.klass = col
-
 
     def add(self, row) -> None:
         for _, names in enumerate(zip(self.x, self.y)):
             for i, col in enumerate(names):
-                col.add(row.cells[i])             
+                col.add(row.cells[i])

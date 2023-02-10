@@ -18,3 +18,4 @@ def lt(x):
   def sort_func(a, b):
     return a[x] < b[x]
   return sort_func
+

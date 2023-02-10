@@ -3,13 +3,15 @@ from src.Num import *
 from src.Sym import *
 from src.consts import *
 from src.Data import *
-global the
+import json
+
+import ast
+
 def run_tests():
 
   def main(options, help, funs):
       saved = {}
       fails = 0
-
       
       for k,v in cli(settings(help)).items():
         options[k] = v
@@ -40,7 +42,7 @@ def run_tests():
     help = getConstant("help")
     help = help + " -g {}\t{}\n".format(key, str)
 
-  eg("the", "show settings", lambda:oo(the))
+  # eg("the", "show settings", lambda:oo(the))
 
   def rand_generate_reset_regenerate_same():
       num1, num2 = NUM(), NUM()
@@ -54,8 +56,20 @@ def run_tests():
       m2 = rnd(num2.mid(), 10)
       return m1==m2 and .5 == rnd(m1,1) 
 
-  eg("rand","generate, reset, regenerate same", rand_generate_reset_regenerate_same)
+  # eg("rand","generate, reset, regenerate same", rand_generate_reset_regenerate_same)
   
+  def check_copy():
+    t1 = {"a": 1,
+          "b": {"c": 2, "d": {3}}
+          }
+    t2 = deepcopy(t1)
+    t2["b"]["d"] = {10000}
+    print("b4", o(t1))
+    print("After", o(t2))
+
+  eg("copy", "check copy", check_copy)
+
+
   def check_syms():
       sym = SYM()
       for x in ["a", "a", "a", "a", "b", "b", "c"]:
@@ -71,23 +85,144 @@ def run_tests():
       return 11/7 == num.mid() and 0.787 == rnd(num.div(), 3)
 
   eg("num", "check nums", check_nums)
-    
-  def checkReadCSV():
-    n = 0
-    
-    def CsvHelperFunc(t):
-      nonlocal n
-      n = n+len(t)      
-    CSV('data/input.csv', CsvHelperFunc)
-    return n == 8*399
   
-  eg("csv", "read from csv", checkReadCSV)
-  
-  def check_data():
-    data = DATA('data/input.csv')
-    return         len(data.rows) == 398 and data.cols.y[0].w == -1 and data.cols.x[1].at == 1 and len(data.cols.x) == 4
+
+  def file_to_json(file_path):
+    with open(file_path, 'r') as file:
+        contents = file.read()
+
+    contents = re.sub(r'(\w+)\s*=', r'"\1":', contents)
+    contents = re.sub(r'{', '[', contents)
+    contents = re.sub(r'}', ']', contents)
+    contents = re.sub(r'!', '{', contents)
+    contents = re.sub(r'%', '}', contents)
+    contents = re.sub(r"'", '"', contents)
+    contents = re.sub(r"_", '" "', contents)
+    json_data = json.dumps(contents)
+    new_json = json.loads(json_data)
+    res = ast.literal_eval(json_data)
+    print(type(res))
+    return res
+
+  def dofile(filename):
+    with open(filename) as f:
+      return json.load(f)
     
-  eg("data", "read DATA csv", check_data)
+  def check_repcols():
+    
+    rawData = dofile('data/repgrid1.json')
+    t = repCols(rawData["cols"])
+    # t = exec(open(sFile).read())
+    # print(file_to_json('data/repgrid1.csv'))
+    # t = repCols(file_to_json('data/repgrid1.csv')['cols']   )
+    print("repcolssss", t)
+    print("!!!!!!!!!!!!!!!!!")
+    print(vars(t.cols.all[0]))
+    print("!!!!!!!!!!")
+    for col in t.cols.all:
+      print(vars(col))
+    for row in t.rows:
+      print(vars(row))
+    # map(t.cols.all, oo)
+    # map(t.rows, oo)
+
+
+  eg("repcols", "checking repcols", check_repcols)
+  
+  # def repColsFunc():
+  #   script_dir = os.path.dirname(__file__)
+  #   full_path = os.path.join(script_dir, args.file)
+  #   rawData = dofile(full_path)
+  #   t = repCols(rawData["cols"])
+  #   for col in t.cols.all:
+  #       print(vars(col))
+  #   for row in t.rows:
+  #       print(vars(row))
+
+
+  def check_synonymsFunc():
+      full_path = 'data/repgrid1.json'
+      show(repCols(dofile(full_path)["cols"]).cluster())
+
+  eg("synonyms", "checking repcols", check_synonymsFunc)
+  
+  def check_reprowsFunc():
+    full_path = 'data/repgrid1.csv'
+    t = dofile(full_path)
+    rows = repRows(t, transpose(t["cols"]))
+    for col in rows.cols.all:
+        print(vars(col))
+    for row in rows.rows:
+        print(vars(row))
+
+  eg("reprows", "checking repcols", check_reprowsFunc)
+  
+  
+  
+  # def check_copyFunc():
+  #     t1 = {'a': 1, 'b': {'c': 2, 'd': [3]}}
+  #     t2 = deepcopy(t1)
+  #     t2["b"]["d"][0] = 10000
+  #     print("Before: " + str(t1) + "\nAfter: " + str(t2))
+
+  def check_prototypesFunc():
+      full_path = 'data/repgrid1.json'
+      t = dofile(full_path)
+      rows = repRows(t, transpose(t["cols"]))
+      show(rows.cluster())
+      
+  eg("prototypes", "checking repcols", check_prototypesFunc)
+
+  def check_positionFunc():
+      full_path = 'data/repgrid1.json'
+      t = dofile(full_path)
+      rows = repRows(t, transpose(t["cols"]))
+      rows.cluster()
+      repPlace(rows)
+
+  eg("position", "checking repcols", check_positionFunc)
+  
+  def check_repgrid(sFile):
+      t = dofile(sFile)
+      rows = repRows(t, transpose(t["cols"]))
+      cols = repCols(t["cols"])
+      show(rows.cluster())
+      show(cols.cluster())
+      repPlace(rows)
+        
+  def everyFunc():
+      full_path = 'data/repgrid1.json'
+      check_repgrid(full_path)
+
+  eg("repgrid", "checking repcols", everyFunc)
+    
+    
+    
+    
+    
+    
+    
+    
+  
+  
+  
+  
+  # def checkReadCSV():
+  #   n = 0
+    
+  #   def CsvHelperFunc(t):
+
+  #     data = DATA('data/input.csv')
+  #     return data.n == 8*399
+  
+  # eg("csv", "read from csv", checkReadCSV)
+
+
+  # def check_data():
+  #   data = DATA('data/input.csv')
+  #   return         len(data.rows) == 398 and data.cols.y[0].w == -1 and data.cols.x[1].at == 1 and len(data.cols.x) == 4
+    
+  # eg("data", "read DATA csv", check_data)
 
 
   def checkClone():
@@ -128,14 +263,4 @@ def run_tests():
     show(data.sway(),"mid",data.cols.y,1)
 
   eg("optimize", "semi-supervised optimization", checkOptimize)
-  main(the, getConstant("help"), egs)
-
-#   def checkStats():
-#     data = DATA('data/input.csv')
-#     for k,cols in [('y',data.cols.y),('x',data.cols.x)]:
-#       print(k,"mid",o(data.stats("mid",cols,2 )))
-#       print("", "div",o(data.stats("div",cols,2)))
-
-#   eg("stats", "stats from DATA", checkStats)
-
   main(the, getConstant("help"), egs)
