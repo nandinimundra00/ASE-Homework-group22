@@ -1,5 +1,5 @@
 import re
-from src.Num import *
+from src.Num import NUM
 from src.Misc import *
 from src.Sym import *
 
@@ -14,10 +14,8 @@ class COLS:
         for c, s in enumerate(names):
             s = str(s)
             if re.match(r"^[A-Z]+", s):
-                print("num", s)
                 col = NUM(c, s)
             else:
-                print("sym", s)
                 col = SYM(c, s)
             self.all.append(col)
 
@@ -33,6 +31,8 @@ class COLS:
                     self.klass = col
 
     def add(self, row) -> None:
-        for _, names in enumerate(zip(self.x, self.y)):
-            for i, col in enumerate(names):
-                col.add(row.cells[i])
+        for t in [self.x, self.y]:
+            for i,col in enumerate(t):
+                if type(row.cells[i]) is int:
+                    col.add(row.cells[i])
+
