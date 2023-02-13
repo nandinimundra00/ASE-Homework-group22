@@ -4,7 +4,6 @@ from src.Sym import *
 from src.consts import *
 from src.Data import *
 import json
-
 import ast
 
 def run_tests():
@@ -42,7 +41,7 @@ def run_tests():
     help = getConstant("help")
     help = help + " -g {}\t{}\n".format(key, str)
 
-  # eg("the", "show settings", lambda:oo(the))
+  eg("the", "show settings", lambda:oo(the))
 
   def rand_generate_reset_regenerate_same():
       num1, num2 = NUM(), NUM()
@@ -56,7 +55,7 @@ def run_tests():
       m2 = rnd(num2.mid(), 10)
       return m1==m2 and .5 == rnd(m1,1) 
 
-  # eg("rand","generate, reset, regenerate same", rand_generate_reset_regenerate_same)
+  eg("rand","generate, reset, regenerate same", rand_generate_reset_regenerate_same)
   
   def check_copy():
     t1 = {"a": 1,
@@ -101,7 +100,6 @@ def run_tests():
     json_data = json.dumps(contents)
     new_json = json.loads(json_data)
     res = ast.literal_eval(json_data)
-    print(type(res))
     return res
 
   def dofile(filename):
@@ -109,36 +107,14 @@ def run_tests():
       return json.load(f)
     
   def check_repcols():
-    
     rawData = dofile('data/repgrid1.json')
     t = repCols(rawData["cols"])
-    # t = exec(open(sFile).read())
-    # print(file_to_json('data/repgrid1.csv'))
-    # t = repCols(file_to_json('data/repgrid1.csv')['cols']   )
-    print("repcolssss", t)
-    print("!!!!!!!!!!!!!!!!!")
-    print(vars(t.cols.all[0]))
-    print("!!!!!!!!!!")
     for col in t.cols.all:
       print(vars(col))
     for row in t.rows:
       print(vars(row))
-    # map(t.cols.all, oo)
-    # map(t.rows, oo)
-
 
   eg("repcols", "checking repcols", check_repcols)
-  
-  # def repColsFunc():
-  #   script_dir = os.path.dirname(__file__)
-  #   full_path = os.path.join(script_dir, args.file)
-  #   rawData = dofile(full_path)
-  #   t = repCols(rawData["cols"])
-  #   for col in t.cols.all:
-  #       print(vars(col))
-  #   for row in t.rows:
-  #       print(vars(row))
-
 
   def check_synonymsFunc():
       full_path = 'data/repgrid1.json'
@@ -147,7 +123,7 @@ def run_tests():
   eg("synonyms", "checking repcols", check_synonymsFunc)
   
   def check_reprowsFunc():
-    full_path = 'data/repgrid1.csv'
+    full_path = 'data/repgrid1.json'
     t = dofile(full_path)
     rows = repRows(t, transpose(t["cols"]))
     for col in rows.cols.all:
@@ -157,14 +133,6 @@ def run_tests():
 
   eg("reprows", "checking repcols", check_reprowsFunc)
   
-  
-  
-  # def check_copyFunc():
-  #     t1 = {'a': 1, 'b': {'c': 2, 'd': [3]}}
-  #     t2 = deepcopy(t1)
-  #     t2["b"]["d"][0] = 10000
-  #     print("Before: " + str(t1) + "\nAfter: " + str(t2))
-
   def check_prototypesFunc():
       full_path = 'data/repgrid1.json'
       t = dofile(full_path)
@@ -196,71 +164,5 @@ def run_tests():
 
   eg("repgrid", "checking repcols", everyFunc)
     
-    
-    
-    
-    
-    
-    
-    
-  
-  
-  
-  
-  # def checkReadCSV():
-  #   n = 0
-    
-  #   def CsvHelperFunc(t):
-
-  #     data = DATA('data/input.csv')
-  #     return data.n == 8*399
-  
-  # eg("csv", "read from csv", checkReadCSV)
-
-
-  # def check_data():
-  #   data = DATA('data/input.csv')
-  #   return         len(data.rows) == 398 and data.cols.y[0].w == -1 and data.cols.x[1].at == 1 and len(data.cols.x) == 4
-    
-  # eg("data", "read DATA csv", check_data)
-
-
-  def checkClone():
-    data1 = DATA('data/input.csv')
-    data2 = data1.clone(data1.rows)
-    return (len(data1.rows) == len(data2.rows)) and data1.cols.y[1].w == data2.cols.y[1].w and data1.cols.x[1].at == data2.cols.x[1].at and (len(data1.cols.x) == len(data2.cols.x))
-  
-  eg("clone", "duplicate structure", checkClone)
-
-  def checkAround():
-    data = DATA('data/input.csv')
-    print(0,0,o(data.rows[1]))
-    for n, t in enumerate(data.around(data.rows[1])):
-      if n%50 == 0:
-        print(n, rnd(t['dist'],2) ,o(t['row']))
-
-  eg("around", "sorting nearest neighbors", checkAround)
-
-  def checkHalf():
-    data = DATA('data/input.csv')
-    left,right,A,B,mid,c = data.half(data.rows) 
-    print(len(left),len(right),len(data.rows))
-    print(A)
-    print(o(A), c)
-    print(o(mid))
-    print(o(B))
-
-  eg("half", "1-level bi-clustering", checkHalf)
-
-  def checkCluster():
-    data = DATA('data/input.csv')
-    show(data.cluster(),"mid",data.cols.y,1)
-
-  eg("cluster", "N-level bi-clustering", checkCluster)
-
-  def checkOptimize():
-    data = DATA('data/input.csv')
-    show(data.sway(),"mid",data.cols.y,1)
-
-  eg("optimize", "semi-supervised optimization", checkOptimize)
   main(the, getConstant("help"), egs)
+
