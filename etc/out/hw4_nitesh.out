@@ -1,0 +1,159 @@
+main options {'dump': False, 'file': '../etc/data/repgrid1.json', 'go': 'all', 'help': False, 'p': 2, 'seed': 937162211}
+{:dump False :file ../etc/data/repgrid1.json :go all :help False :p 2 :seed 937162211}
+✅ pass: the
+✅ pass: rand
+b4 {:a 1 :b {:c 2 :d {3}}}
+After {:a 1 :b {:c 2 :d {10000}}}
+✅ pass: copy
+✅ pass: sym
+✅ pass: num
+{'n': 8, 'mu': 4.0, 'm2': 6.0, 'lo': 2.0, 'hi': 5.0, 'txt': 'Num0', 'w': 1, 'at': 0}
+{'n': 8, 'mu': 3.875, 'm2': 10.874999999999998, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num1', 'w': 1, 'at': 1}
+{'n': 8, 'mu': 2.25, 'm2': 11.5, 'lo': 1.0, 'hi': 4.0, 'txt': 'Num2', 'w': 1, 'at': 2}
+{'n': 8, 'mu': 2.75, 'm2': 17.5, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num3', 'w': 1, 'at': 3}
+{'n': 8, 'mu': 3.375, 'm2': 9.875, 'lo': 2.0, 'hi': 5.0, 'txt': 'Num4', 'w': 1, 'at': 4}
+{'n': 8, 'mu': 2.5, 'm2': 30.0, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num5', 'w': 1, 'at': 5}
+{'n': 8, 'mu': 3.5, 'm2': 20.000000000000004, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num6', 'w': 1, 'at': 6}
+{'n': 8, 'mu': 4.0, 'm2': 9.999999999999998, 'lo': 2.0, 'hi': 5.0, 'txt': 'Num7', 'w': 1, 'at': 7}
+{'n': 8, 'mu': 3.1250000000000004, 'm2': 6.875, 'lo': 2.0, 'hi': 5.0, 'txt': 'Num8', 'w': 1, 'at': 8}
+{'n': 8, 'mu': 2.375, 'm2': 15.875, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num9', 'w': 1, 'at': 9}
+{'at': 10, 'txt': 'thingX', 'n': 0, 'has': {}, 'most': 0, 'mode': None}
+{'cells': [5, 4, 4, 3, 4, 1, 1, 3, 5, 5, 'PopSong:RockSong'], 'x': None, 'y': None}
+{'cells': [2, 4, 4, 5, 5, 5, 5, 5, 3, 2, 'DanceSong:Ballad'], 'x': None, 'y': None}
+{'cells': [4, 4, 2, 2, 2, 1, 4, 3, 2, 1, 'AcousticSong:ElectronicSong'], 'x': None, 'y': None}
+{'cells': [5, 1, 2, 1, 3, 5, 3, 2, 2, 2, 'SadSong:HappySong'], 'x': None, 'y': None}
+{'cells': [4, 5, 3, 3, 3, 1, 4, 5, 4, 4, 'FastSong:SlowSong'], 'x': None, 'y': None}
+{'cells': [4, 4, 1, 1, 5, 1, 1, 4, 3, 1, 'LoveSong:HateSong'], 'x': None, 'y': None}
+{'cells': [4, 5, 1, 2, 3, 1, 5, 5, 3, 1, 'SoloSong:Collaboration'], 'x': None, 'y': None}
+{'cells': [4, 4, 1, 5, 2, 5, 5, 5, 3, 3, 'CatchySong:BoringSong'], 'x': None, 'y': None}
+✅ pass: repcols
+53
+|.. 46
+|.. |.. 36
+|.. |.. |.. AcousticSong:ElectronicSong
+|.. |.. |.. SadSong:HappySong
+|.. |.. 42
+|.. |.. |.. LoveSong:HateSong
+|.. |.. |.. PopSong:RockSong
+|.. 37
+|.. |.. 35
+|.. |.. |.. CatchySong:BoringSong
+|.. |.. |.. SoloSong:Collaboration
+|.. |.. 40
+|.. |.. |.. FastSong:SlowSong
+|.. |.. |.. DanceSong:Ballad
+✅ pass: synonyms
+{'n': 10, 'mu': 3.5, 'm2': 20.5, 'lo': 1.0, 'hi': 5.0, 'txt': 'PopSong:RockSong', 'w': 1, 'at': 0}
+{'n': 10, 'mu': 4.0, 'm2': 14.0, 'lo': 2.0, 'hi': 5.0, 'txt': 'DanceSong:Ballad', 'w': 1, 'at': 1}
+{'n': 10, 'mu': 2.5, 'm2': 12.5, 'lo': 1.0, 'hi': 4.0, 'txt': 'AcousticSong:ElectronicSong', 'w': 1, 'at': 2}
+{'n': 10, 'mu': 2.5999999999999996, 'm2': 18.400000000000002, 'lo': 1.0, 'hi': 5.0, 'txt': 'SadSong:HappySong', 'w': 1, 'at': 3}
+{'n': 10, 'mu': 3.6, 'm2': 12.399999999999999, 'lo': 1.0, 'hi': 5.0, 'txt': 'FastSong:SlowSong', 'w': 1, 'at': 4}
+{'n': 10, 'mu': 2.5, 'm2': 24.499999999999996, 'lo': 1.0, 'hi': 5.0, 'txt': 'LoveSong:HateSong', 'w': 1, 'at': 5}
+{'n': 10, 'mu': 3.0, 'm2': 26.0, 'lo': 1.0, 'hi': 5.0, 'txt': 'SoloSong:Collaboration', 'w': 1, 'at': 6}
+{'n': 10, 'mu': 3.6999999999999997, 'm2': 18.1, 'lo': 1.0, 'hi': 5.0, 'txt': 'CatchySong:BoringSong', 'w': 1, 'at': 7}
+{'at': 8, 'txt': 'thingX', 'n': 0, 'has': {}, 'most': 0, 'mode': None}
+{'cells': [5, 2, 4, 5, 4, 4, 4, 4, "It'll be okay"], 'x': None, 'y': None}
+{'cells': [4, 4, 4, 1, 5, 4, 5, 4, 'Harleys in Hawaii'], 'x': None, 'y': None}
+{'cells': [4, 4, 2, 2, 3, 1, 1, 1, 'It will be fine'], 'x': None, 'y': None}
+{'cells': [3, 5, 2, 1, 3, 1, 2, 5, 'Enchanted'], 'x': None, 'y': None}
+{'cells': [4, 5, 2, 3, 3, 5, 3, 2, 'Stairway to Heaven'], 'x': None, 'y': None}
+{'cells': [1, 5, 1, 5, 1, 1, 1, 5, 'Billie Jean'], 'x': None, 'y': None}
+{'cells': [1, 5, 4, 3, 4, 1, 5, 5, 'Tears in Heaven'], 'x': None, 'y': None}
+{'cells': [3, 5, 3, 2, 5, 4, 5, 5, 'Yesterday'], 'x': None, 'y': None}
+{'cells': [5, 3, 2, 2, 4, 3, 3, 3, 'Bohemian Rhapsody'], 'x': None, 'y': None}
+{'cells': [5, 2, 1, 2, 4, 1, 1, 3, 'Shape of You'], 'x': None, 'y': None}
+✅ pass: reprows
+48
+|.. 40
+|.. |.. 35
+|.. |.. |.. It'll be okay
+|.. |.. |.. Harleys in Hawaii
+|.. |.. 33
+|.. |.. |.. Yesterday
+|.. |.. |.. 26
+|.. |.. |.. |.. Stairway to Heaven
+|.. |.. |.. |.. Bohemian Rhapsody
+|.. 57
+|.. |.. 46
+|.. |.. |.. Tears in Heaven
+|.. |.. |.. Billie Jean
+|.. |.. 32
+|.. |.. |.. It will be fine
+|.. |.. |.. 36
+|.. |.. |.. |.. Shape of You
+|.. |.. |.. |.. Enchanted
+✅ pass: prototypes
+
+A It'll be okay
+B Harleys in Hawaii
+C It will be fine
+D Enchanted
+E Stairway to Heaven
+F Billie Jean
+G Tears in Heaven
+H Yesterday
+I Bohemian Rhapsody
+J Shape of You
+
+{       D             }
+{                     }
+{                     }
+{                     }
+{    EI  C            }
+{ J   H B             }
+{                     }
+{A        F           }
+✅ pass: position
+48
+|.. 40
+|.. |.. 35
+|.. |.. |.. It'll be okay
+|.. |.. |.. Harleys in Hawaii
+|.. |.. 33
+|.. |.. |.. Yesterday
+|.. |.. |.. 26
+|.. |.. |.. |.. Stairway to Heaven
+|.. |.. |.. |.. Bohemian Rhapsody
+|.. 57
+|.. |.. 46
+|.. |.. |.. Tears in Heaven
+|.. |.. |.. Billie Jean
+|.. |.. 32
+|.. |.. |.. It will be fine
+|.. |.. |.. 36
+|.. |.. |.. |.. Shape of You
+|.. |.. |.. |.. Enchanted
+53
+|.. 46
+|.. |.. 36
+|.. |.. |.. AcousticSong:ElectronicSong
+|.. |.. |.. SadSong:HappySong
+|.. |.. 42
+|.. |.. |.. LoveSong:HateSong
+|.. |.. |.. PopSong:RockSong
+|.. 37
+|.. |.. 35
+|.. |.. |.. CatchySong:BoringSong
+|.. |.. |.. SoloSong:Collaboration
+|.. |.. 40
+|.. |.. |.. FastSong:SlowSong
+|.. |.. |.. DanceSong:Ballad
+
+A It'll be okay
+B Harleys in Hawaii
+C It will be fine
+F Billie Jean
+G Tears in Heaven
+H Yesterday
+I Bohemian Rhapsody
+J Shape of You
+
+{       D             }
+{                     }
+{                     }
+{                     }
+{    EI  C            }
+{ J   H B             }
+{                     }
+{A        F           }
+✅ pass: repgrid
