@@ -40,14 +40,14 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with test_engine
         run: |
-          cd HW3
+          cd HW4
           python -m src.main --go num
           python -m src.main --go sym
           python -m src.main --go rand
           python -m src.main --go the
       - name: Run tests
         run: |
-          cd HW3
+          cd HW4
           python -m coverage run -m src.main --go all
           codeCoverageStr=$(python -m coverage report | grep 'TOTAL')
           codeCoverage=$(echo $codeCoverageStr | awk '{print $4}')
