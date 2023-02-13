@@ -4,10 +4,10 @@ from src.Row import *
 from src.list_util import *
 from src.consts import *
 from operator import itemgetter
+from collections.abc import Iterable
 
 class DATA:
    
-    
     def __init__(self, src):
         self.rows = []
         self.cols = None
@@ -18,19 +18,8 @@ class DATA:
         else:
             for row in src:
                 self.add(row)
-
+        
     def add(self, t):
-        """
-        Function:
-            add
-        Description:
-            Adds the data to rows and cols, or makes a COLS if there aren't any columns stored yet
-        Input:
-            self - current DATA instance
-            t - data to be added
-        Output:
-            None
-        """
         if self.cols:
             t = t if hasattr(t, "cells") else ROW(t)
             self.rows.append(t)
@@ -67,22 +56,19 @@ class DATA:
         n, d = 0, 0
         for _, col in enumerate(self.cols.x or cols):
             n = n + 1
-            d = d + col.dist(row1[col.at], row2[col.at]) ** 2
+            d = d + col.dist(row1.cells[col.at], row2.cells[col.at]) ** 2
         return (d / n) ** (1 / 2)
 
-    def clone(self, init=None):
-        if init is None:
-            init = []
-        data = DATA(self.cols.names)
-        _ = list(map(data.add, init))
+    def clone(self, rows=None):
+        data = DATA([self.cols.names])
+        for row in rows:
+            data.add(row)
         return data
-
     # def sway(self, rows=None, min=None, cols=None, above=None):
     #     rows = rows or self.rows
     #     min = min or len(rows) ** 0.5
     #     cols = cols or self.cols.x
     #     node = {"data": self.clone(rows)}
-
     #     if len(rows) > 2 * min:
     #         left, right, node["A"], node["B"], node["min"], _ = self.half(
     #             rows, cols, above
@@ -99,56 +85,66 @@ class DATA:
     def around(self, row1, rows=None, cols=None):
         if rows is None:
             rows = self.rows
-
-        def distance(row2):
-            return {"row": row2, "dist": self.dist(row1, row2, cols)}
-
-        sorted_rows = sorted(map(distance, rows), key=lambda x: x["dist"])
-        return sorted_rows
+        if isinstance(rows, Iterable):
+            iterable = rows
+        else:
+            iterable = self.rows
+        rows_with_distance = [(row2, self.dist(row1, row2, cols))
+                              for row2 in iterable]
+        sorted_rows = sorted(rows_with_distance, key=lambda x: x[1])
+        return [(row, dist) for row, dist in sorted_rows]
 
     def cluster(self, rows=None, cols=None, above=None):
-        
-        rows = rows or self.rows
-        cols = cols or self.cols.x
+        rows = rows if rows else self.rows
+        cols = cols if cols else self.cols.x
         node = {"data": self.clone(rows)}
-
-        if len(rows) >= 2 :
-            left, right, node["A"], node["B"], node["min"], node["c"] = self.half(rows, cols, above)
+        
+        if len(rows) >= 2:
+            left, right, node["A"], node["B"], node["mid"], node["C"] = self.half(rows, cols, above)
             node["left"] = self.cluster(left, cols, node["A"])
             node["right"] = self.cluster(right, cols, node["B"])
-            
         return node
         
-    def furthest(self, row1, rows, cols):
-        t = self.around(row1, rows, cols)
-        return t[len(t)]
-
+    def furthest(self, row1, rows, cols=None):
+        t = self.around(row1, rows, cols)        
+        return t[-1][0]
 
     def half(self, rows=None, cols=None, above=None):
-        def distD(row1, row2):
-            return self.dist(row1, row2, cols)
-
+        A, B, left, right, c, mid, some = None, None, None, None, None, None, None
+        def any(t):
+            rintVal = rint1(None, len(t)-1)
+            return t[rintVal]
+        def rint1(lo, hi):
+            return math.floor(0.5 + rand1(lo, hi))
+        def rand1(lo, hi):
+            Seed =  93716211
+            lo = lo or 0
+            hi = hi or 1
+            Seed = (16807 * Seed) % 2147483647
+            return lo + (hi - lo) * Seed / 2147483647
+            
+        def cosine(a, b, c):
+            den = 1 if c == 0 else 2 * c
+            x1 = (a**2 + c**2 - b**2) / den
+            x2 = max(0, min(1, x1))
+            y = abs((a**2 - x2**2)) ** 0.5
+            return x2, y
         def project(row):
-            x,y = cosine(distD(row, A), distD(row, B), c)
-            row.x = row.x or x
-            row.y = row.y or y
-            return {
-                "row": row,
-                "x": x,
-                "y": y
-            }
-
-        if rows is None:
-            rows = self.rows
-
-        A = above or any(rows)
-        B = self.furthest(A, rows)["row"]
-        c = distD(A, B)
-        left, right, mid = [], [], None
-        for n, tmp in enumerate(
-            sorted(list(map(project, rows)), key=lambda x: x["x"])
-        ):
-            if n <= len(rows) / 2:
+            x, y  = cosine(dist2(row, A), dist2(row, B), c)
+            row.x = x or row.x
+            row.y = y or row.y
+            return {'row': row, 'x': x, 'y': y}
+        def dist2(row1, row2, cols=None):         
+            return self.dist(row1, row2, cols)
+        rows = rows or self.rows
+        A = any(rows)
+        B = self.furthest(A, rows)
+        c = dist2(A, B)
+        left, right = [], []
+        mapVAR = [project(row) for row in rows]
+        sorted_rows = sorted(mapVAR, key=lambda x: x["x"])
+        for n, tmp in enumerate(sorted_rows):
+            if n <= len(rows) // 2 - 1:
                 left.append(tmp["row"])
                 mid = tmp["row"]
             else:
@@ -156,4 +152,4 @@ class DATA:
         return left, right, A, B, mid, c
 
     
-
+   
