@@ -1,0 +1,20 @@
+{
+    "domain": "songs",
+    "cols": [["PopSong", 3, 3, 3, 4, 4, 4, "RockSong"],
+             ["DanceSong", 4, 4, 2, 4, 5, 4, "Ballad"],
+            ["AcousticSong", 5, 3, 4, 4, 4, 3, "ElectronicSong"],
+             ["SadSong" , 4, 4, 5, 3, 5, 3, "HappySong"],
+        ["FastSong", 5, 3, 3, 4, 4, 4, "SlowSong"],
+        ["LoveSong", 4, 5, 3, 5, 5, 4, "HateSong"],
+         ["SoloSong", 4, 5, 2, 3, 5, 4, "Collaboration"],
+          ["CatchySong", 4, 5, 4, 5, 5, 4, "BoringSong"],
+      ["NewSong", 4, 2, 4, 3, 5, 5, "OldSong"],
+      ["ListenableSong", 5, 5, 4, 3, 5, 4, "UnlistenableSong"]],
+   "rows": [            [ null, null, null, null, null,  "Shape of You"],
+                        [ null, null, null, null,  "Bohemian Rhapsody"],
+                        [ null, null, null,  "Yesterday"],
+                        [ null, null,  "Tears in Heaven"],
+                        [ null,  "Billie Jean"],
+                        ["Stairway to Heaven"]
+            ]
+}
