@@ -1,0 +1,163 @@
+crmgogo@Shubhams-Air-2 HW4 % python3 -m src.main -g all
+main options {'dump': False, 'file': '../etc/data/repgrid1.json', 'go': 'all', 'help': False, 'p': 2, 'seed': 937162211}
+{:dump False :file ../etc/data/repgrid1.json :go all :help False :p 2 :seed 937162211}
+✅ pass: the
+✅ pass: rand
+b4 {:a 1 :b {:c 2 :d {3}}}
+After {:a 1 :b {:c 2 :d {10000}}}
+✅ pass: copy
+✅ pass: sym
+✅ pass: num
+{'n': 8, 'mu': 1.75, 'm2': 13.5, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num0', 'w': 1, 'at': 0}
+{'n': 8, 'mu': 2.375, 'm2': 17.875, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num1', 'w': 1, 'at': 1}
+{'n': 8, 'mu': 1.5, 'm2': 6.000000000000001, 'lo': 1.0, 'hi': 3.0, 'txt': 'Num2', 'w': 1, 'at': 2}
+{'n': 8, 'mu': 2.125, 'm2': 18.875, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num3', 'w': 1, 'at': 3}
+{'n': 8, 'mu': 1.8749999999999998, 'm2': 14.874999999999998, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num4', 'w': 1, 'at': 4}
+{'n': 8, 'mu': 3.0, 'm2': 32.0, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num5', 'w': 1, 'at': 5}
+{'n': 8, 'mu': 3.5, 'm2': 20.000000000000004, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num6', 'w': 1, 'at': 6}
+{'n': 8, 'mu': 4.125, 'm2': 10.874999999999998, 'lo': 2.0, 'hi': 5.0, 'txt': 'Num7', 'w': 1, 'at': 7}
+{'n': 8, 'mu': 2.5, 'm2': 16.0, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num8', 'w': 1, 'at': 8}
+{'n': 8, 'mu': 2.375, 'm2': 15.875, 'lo': 1.0, 'hi': 5.0, 'txt': 'Num9', 'w': 1, 'at': 9}
+{'at': 10, 'txt': 'thingX', 'n': 0, 'has': {}, 'most': 0, 'mode': None}
+{'cells': [5, 3, 3, 1, 1, 1, 1, 3, 5, 5, 'DevelopmentTool:Application'], 'x': None, 'y': None}
+{'cells': [2, 1, 1, 5, 5, 5, 5, 5, 1, 2, 'Multimedia:Programming'], 'x': None, 'y': None}
+{'cells': [1, 3, 1, 3, 2, 5, 4, 3, 1, 1, 'Communication Technology:Application Technology'], 'x': None, 'y': None}
+{'cells': [2, 1, 1, 1, 3, 5, 3, 2, 2, 2, 'HumanOrientedTool:SystemTool'], 'x': None, 'y': None}
+{'cells': [1, 5, 3, 4, 1, 1, 4, 5, 4, 4, 'ConventionalCommunication:NovelCommunication'], 'x': None, 'y': None}
+{'cells': [1, 4, 1, 1, 1, 1, 1, 5, 3, 1, 'OnlyActAsProgrammed:Semi-autonomous'], 'x': None, 'y': None}
+{'cells': [1, 1, 1, 1, 1, 1, 5, 5, 1, 1, 'ConventionalSystem:IntelligentSystem'], 'x': None, 'y': None}
+{'cells': [1, 1, 1, 1, 1, 5, 5, 5, 3, 3, 'TargetedOnInterface:TargetedOnOverallSystem'], 'x': None, 'y': None}
+✅ pass: repcols
+56
+|.. 32
+|.. |.. 24
+|.. |.. |.. Communication Technology:Application Technology
+|.. |.. |.. HumanOrientedTool:SystemTool
+|.. |.. 38
+|.. |.. |.. TargetedOnInterface:TargetedOnOverallSystem
+|.. |.. |.. Multimedia:Programming
+|.. 46
+|.. |.. 34
+|.. |.. |.. ConventionalSystem:IntelligentSystem
+|.. |.. |.. OnlyActAsProgrammed:Semi-autonomous
+|.. |.. 43
+|.. |.. |.. ConventionalCommunication:NovelCommunication
+|.. |.. |.. DevelopmentTool:Application
+✅ pass: synonyms
+{'n': 10, 'mu': 2.8, 'm2': 27.6, 'lo': 1.0, 'hi': 5.0, 'txt': 'DevelopmentTool:Application', 'w': 1, 'at': 0}
+{'n': 10, 'mu': 3.2, 'm2': 33.6, 'lo': 1.0, 'hi': 5.0, 'txt': 'Multimedia:Programming', 'w': 1, 'at': 1}
+{'n': 10, 'mu': 2.4, 'm2': 18.4, 'lo': 1.0, 'hi': 5.0, 'txt': 'Communication Technology:Application Technology', 'w': 1, 'at': 2}
+{'n': 10, 'mu': 2.2000000000000006, 'm2': 13.599999999999998, 'lo': 1.0, 'hi': 5.0, 'txt': 'HumanOrientedTool:SystemTool', 'w': 1, 'at': 3}
+{'n': 10, 'mu': 3.2, 'm2': 23.6, 'lo': 1.0, 'hi': 5.0, 'txt': 'ConventionalCommunication:NovelCommunication', 'w': 1, 'at': 4}
+{'n': 10, 'mu': 1.9, 'm2': 20.9, 'lo': 1.0, 'hi': 5.0, 'txt': 'OnlyActAsProgrammed:Semi-autonomous', 'w': 1, 'at': 5}
+{'n': 10, 'mu': 1.8, 'm2': 25.6, 'lo': 1.0, 'hi': 5.0, 'txt': 'ConventionalSystem:IntelligentSystem', 'w': 1, 'at': 6}
+{'n': 10, 'mu': 2.5999999999999996, 'm2': 30.4, 'lo': 1.0, 'hi': 5.0, 'txt': 'TargetedOnInterface:TargetedOnOverallSystem', 'w': 1, 'at': 7}
+{'at': 8, 'txt': 'thingX', 'n': 0, 'has': {}, 'most': 0, 'mode': None}
+{'cells': [5, 2, 1, 2, 1, 1, 1, 1, 'ElectronicPublishing'], 'x': None, 'y': None}
+{'cells': [3, 1, 3, 1, 5, 4, 1, 1, 'VirtualReality'], 'x': None, 'y': None}
+{'cells': [3, 1, 1, 1, 3, 1, 1, 1, 'MultimediaAndHypermedia'], 'x': None, 'y': None}
+{'cells': [1, 5, 3, 1, 4, 1, 1, 1, 'VisualProgramming'], 'x': None, 'y': None}
+{'cells': [1, 5, 2, 3, 1, 1, 1, 1, 'CrossPlatformGUIs'], 'x': None, 'y': None}
+{'cells': [1, 5, 5, 5, 1, 1, 1, 5, 'ObjectOrientedSystems'], 'x': None, 'y': None}
+{'cells': [1, 5, 4, 3, 4, 1, 5, 5, 'KnowledgeBasedSystems'], 'x': None, 'y': None}
+{'cells': [3, 5, 3, 2, 5, 5, 5, 5, 'IntelligentAgents'], 'x': None, 'y': None}
+{'cells': [5, 1, 1, 2, 4, 3, 1, 3, 'InformationHighway'], 'x': None, 'y': None}
+{'cells': [5, 2, 1, 2, 4, 1, 1, 3, 'BroadbandNetworks'], 'x': None, 'y': None}
+✅ pass: reprows
+59
+|.. 60
+|.. |.. 22
+|.. |.. |.. MultimediaAndHypermedia
+|.. |.. |.. ElectronicPublishing
+|.. |.. 38
+|.. |.. |.. VisualProgramming
+|.. |.. |.. 38
+|.. |.. |.. |.. CrossPlatformGUIs
+|.. |.. |.. |.. ObjectOrientedSystems
+|.. 57
+|.. |.. 27
+|.. |.. |.. InformationHighway
+|.. |.. |.. VirtualReality
+|.. |.. 51
+|.. |.. |.. IntelligentAgents
+|.. |.. |.. 52
+|.. |.. |.. |.. KnowledgeBasedSystems
+|.. |.. |.. |.. BroadbandNetworks
+✅ pass: prototypes
+
+A ElectronicPublishing
+B VirtualReality
+C MultimediaAndHypermedia
+D VisualProgramming
+E CrossPlatformGUIs
+F ObjectOrientedSystems
+G KnowledgeBasedSystems
+H IntelligentAgents
+I InformationHighway
+J BroadbandNetworks
+
+{                     }
+{                     }
+{          J          }
+{                     }
+{    A E              }
+{    DB  H            }
+{  G                  }
+{  C    F             }
+✅ pass: position
+59
+|.. 60
+|.. |.. 22
+|.. |.. |.. MultimediaAndHypermedia
+|.. |.. |.. ElectronicPublishing
+|.. |.. 38
+|.. |.. |.. VisualProgramming
+|.. |.. |.. 38
+|.. |.. |.. |.. CrossPlatformGUIs
+|.. |.. |.. |.. ObjectOrientedSystems
+|.. 57
+|.. |.. 27
+|.. |.. |.. InformationHighway
+|.. |.. |.. VirtualReality
+|.. |.. 51
+|.. |.. |.. IntelligentAgents
+|.. |.. |.. 52
+|.. |.. |.. |.. KnowledgeBasedSystems
+|.. |.. |.. |.. BroadbandNetworks
+56
+|.. 32
+|.. |.. 24
+|.. |.. |.. Communication Technology:Application Technology
+|.. |.. |.. HumanOrientedTool:SystemTool
+|.. |.. 38
+|.. |.. |.. TargetedOnInterface:TargetedOnOverallSystem
+|.. |.. |.. Multimedia:Programming
+|.. 46
+|.. |.. 34
+|.. |.. |.. ConventionalSystem:IntelligentSystem
+|.. |.. |.. OnlyActAsProgrammed:Semi-autonomous
+|.. |.. 43
+|.. |.. |.. ConventionalCommunication:NovelCommunication
+|.. |.. |.. DevelopmentTool:Application
+
+A ElectronicPublishing
+B VirtualReality
+C MultimediaAndHypermedia
+D VisualProgramming
+E CrossPlatformGUIs
+F ObjectOrientedSystems
+G KnowledgeBasedSystems
+H IntelligentAgents
+I InformationHighway
+J BroadbandNetworks
+
+{                     }
+{                     }
+{          J          }
+{                     }
+{    A E              }
+{    DB  H            }
+{  G                  }
+{  C    F             }
+✅ pass: repgrid
+crmgogo@Shubhams-Air-2 HW4 % 
