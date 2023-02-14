@@ -1,3 +1,5 @@
+
+<h1>Interview Process and Report </h1>
 To begin our study of music preference, we chose to work with a domain of songs and created a grid using the Repertory Grid Technique, a psychological research method used to elicit personal constructs from individuals. The grid consists of 8 attribute sets, each with 11 elements: PopSong, RockSong, DanceSong, Ballad, AcousticSong, ElectronicSong, HappySong, SadSong, FastSong, SlowSong, LoveSong, HateSong, SoloSong, Collaboration, CatchySong, and BoringSong.
 
 We conducted interviews with a group of participants, asking them to rate each of the 10 songs provided on each attribute set. The songs were selected based on their popularity and familiarity, so we could get more consistent responses across different individuals. The songs we chose were: "Shape of You" by Ed Sheeran, "Bohemian Rhapsody" by Queen, "Yesterday" by The Beatles, "Tears in Heaven" by Eric Clapton, "Billie Jean" by Michael Jackson, "Stairway to Heaven" by Led Zeppelin, "Enchanted" by Taylor Swift, "It Will Be Fine" by BTS, "Harleys in Hawaii" by Katy Perry, and "It'll Be Okay" by A R I Z O N A.
