@@ -4,6 +4,14 @@ src package
 Submodules
 ----------
 
+src.Col module
+--------------
+
+.. automodule:: src.Col
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 src.Cols module
 ---------------
 
@@ -16,6 +24,14 @@ src.Data module
 ---------------
 
 .. automodule:: src.Data
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.Discretization module
+-------------------------
+
+.. automodule:: src.Discretization
    :members:
    :undoc-members:
    :show-inheritance:
@@ -52,10 +68,34 @@ src.Sym module
    :undoc-members:
    :show-inheritance:
 
+src.cluster module
+------------------
+
+.. automodule:: src.cluster
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 src.consts module
 -----------------
 
 .. automodule:: src.consts
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.csv\_conv module
+--------------------
+
+.. automodule:: src.csv_conv
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.helpdict module
+-------------------
+
+.. automodule:: src.helpdict
    :members:
    :undoc-members:
    :show-inheritance:
@@ -72,6 +112,14 @@ src.main module
 ---------------
 
 .. automodule:: src.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+src.query module
+----------------
+
+.. automodule:: src.query
    :members:
    :undoc-members:
    :show-inheritance:
