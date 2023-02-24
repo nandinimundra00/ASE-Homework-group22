@@ -1,15 +1,26 @@
 import math
+from src.helpdict import *
 
-class NUM():
-  def __init__(self, n = 0, s = ""):
-      self.at = n
-      self.txt = s
-      self.n = 0
-      self.ok = True
-      self.lo = float('inf')
-      self.hi = float('-inf') # Replaced sys.maxsize   
-      self.has = []
-      self.w = -1 if s.endswith("-") else 1
+# def NUM():
+#   return {
+#     at = n
+#     self.txt = s
+#     self.n = 0
+#     self.ok = True
+#     self.lo = float('inf')
+#     self.hi = float('-inf') # Replaced sys.maxsize   
+#     self.has = []
+#     self.w = -1 if s.endswith("-") else 1
+#   }
+
+
+
+def NUM(n=0, s=''):
+
+  newDict = Map({'at': n or 0, 'txt': s or '', 'n': 0, 'hi': -float('inf'), 'lo': float('inf'),
+             'ok': True, 'has': {}, 'w': -1 if (s or '').endswith('-') else 1})
+  
+  return newDict
 
   # def add(self, n):
   #   if n != "?":

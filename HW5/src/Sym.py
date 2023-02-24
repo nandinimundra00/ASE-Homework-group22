@@ -1,17 +1,20 @@
 #SYM Class
 import math
+from src.helpdict import *
 
-
-class SYM():
-    def __init__(self, n = 0, s = ""):
-        self.at = n
-        self.txt = s
-        self.n = 0
-        self.isSym = True
-        self.has = {}
-        self.most = 0
-        self.mode = None
+# def SYM():
+#     def __init__(self, n = 0, s = ""):
+#         self.at = n
+#         self.txt = s
+#         self.n = 0
+#         self.isSym = True
+#         self.has = {}
+#         self.most = 0
+#         self.mode = None
        
+def SYM(n=0, s=''):
+    return Map({'at': n or 0, 'txt': s or '', 'n': 0, 'mode': None, 'most': 0, 'isSym': True, 'has': {}})
+
 
 #   def add(self, x):
 #       if x != "?":

@@ -7,29 +7,63 @@ from src.consts import *
 
 
 def has(col):
-    if not col.ok and not hasattr(col, "isSym"):
-         if isinstance(col.has, dict):
-            col.has = dict(sorted(col.has.items(), key = lambda item: item[1]))
-    else:
-        col.has.sort()
-    col.ok = True
-    return col.has
+    if not col.isSym and not col.ok:
+        sorted(col['has'])
+    col['ok'] = True
+    return col['has']
+    # if not col.ok and not hasattr(col, "isSym"):
+    #      if isinstance(col.has, dict):
+    #         col.has = dict(sorted(col.has.items(), key = lambda item: item[1]))
+    # else:
+    #     col.has.sort()
+    # col.ok = True
+    # return col.has
+    # if hasattr(col, "isSym"):
+    #     return True
+    
+    # else:
+    #     col['has'].sort()
+    #     col['ok'] = True
+    # print(col)
+    # return col
 
 def per(t, p):
     p = math.floor(((p or 0.5) * len(t)) + 0.5)
-    return t[max(1, min(len(t), p))]
+    return t[max(1, min(len(t), p)) - 1]
+    # p = math.floor(((p or 0.5) * len(t)) + 0.5)
+    # return t[max(1, min(len(t), p))]
 
 def mid(col):
-    return col.mode if hasattr(col, "isSym") else per(has(col), 0.5)
+    
+    return col.mode if col.isSym else per(has(col), 0.5)
 
 
-def stats(data, nPlaces, fun = None, cols = None):
-    cols = cols or data.cols.y
-    def fun(k, col):
-        return round((fun or mid)(col), nPlaces), col.txt
-    tmp = kap(cols, fun)
-    tmp["N"] = len(data.rows)
-    return tmp, map(cols, mid)
+def stats(data, nPlaces=2, fun = None, cols = None):
+    # cols = cols or data["cols"]["y"]
+    # def fun(k, col):
+    #     return round((fun or mid)(col), nPlaces), col["txt"]
+    # tmp = kap(cols, fun)
+    # tmp["N"] = len(data["rows"])
+    # return tmp, map(cols, mid)
+    # cols = cols or data["cols"]["y"]
+    # tmp = {}
+    # for k, col in enumerate(cols):
+    #     val = (fun or mid)(col)
+    #     if nPlaces is not None:
+    #         val = round(val, nPlaces)
+    #     tmp[col.txt] = val
+    # tmp["N"] = len(data["rows"])
+    # return tmp, [mid(col) for col in cols]
+    cols = cols or data["cols"]["y"]
+    print("--------------")
+    # print(data)
+    def callBack(k, col):
+        # print("Col:", col)
+        col = col
+        return round((fun or mid)(col), nPlaces), col["txt"]
+    tmp = kap(cols, callBack)
+    tmp["N"] = len(data["rows"])
+    return tmp, map(mid, cols)
 
 def div(col):
     if hasattr(col, "isSym"):
@@ -49,7 +83,7 @@ def norm(num, n):
 
 def value(has, nB = 1 , nR = 1, sGoal = True):
     b, r = 0, 0
-    for x, n in enumerate(has):
+    for x, n in has.items():
         if x == sGoal:
             b = b + n
         else:
@@ -71,16 +105,16 @@ def dist(data, t1, t2, cols = None):
         return abs(x - y)
     d = 0
     n = 1 / float("inf")
-    cols = cols or data.cols.x
+    cols = cols or data['cols']['x']
     for col in cols:
         n = n + 1
-        d = d+  dist1(col, t1[col.at], t2[col.at])**2
+        d = d + dist1(col, t1[col['at']], t2[col['at']])**2
     return (d / n)**(1 / 2)
 
 def better(data, row1, row2):
     s1 = 0
     s2 = 0
-    ys = data.cols.y
+    ys = data["cols"]["y"]
     for _, col in enumerate(ys):
         x = norm(col, row1[col.at])
         y = norm(col, row2[col.at])

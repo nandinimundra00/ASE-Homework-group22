@@ -1,4 +1,5 @@
 import re
+import io
 
 def fmt(sControl, *args):
   return sControl.format(*args)
@@ -47,5 +48,32 @@ def coerce(s: str):
         val = fun(re.search('^\s*(.+?)\s*$', s).group(1))
     return val
 
+
+def cells(s):
+    t = []
+    for s1 in re.findall("[^,]+", s):
+        t.append(coerce(s1))
+    return t
+
+
+def lines(sFilename, fun):
+    with open(sFilename, "r") as src:
+        for s in src:
+            s = s.rstrip("\r\n")
+            fun(s)
+    src.close()
+
+
+def CSV(sFilename, fun):
+    lines(sFilename, lambda line: fun(cells(line)))
+    
+
+fmt = str.format
+def say(*args):
+    io.stderr.write(fmt(*args))
+
+
+def sayln(*args):
+    io.stderr.write(fmt(*args) + "\n")
 
 

@@ -1,9 +1,8 @@
 from typing import Any, cast
 import csv
 from csv import reader
-from src.Data import DATA
+from src.Data import *
 from src.str_util import *
-from src.Misc import *
 import math
 import sys
 import re
@@ -11,6 +10,9 @@ import os
 import io
 import random
 from copy import deepcopy
+from src.consts import *
+global Seed
+
 
 def settings(s):
   t = {}
@@ -34,25 +36,27 @@ def cli(options):
         options[k] = coerce(v)
     return options
 
-global Seed
 
-def rand(lo, hi):
+
+def rand(lo=0, hi=1):
   Seed =  93716211
   lo = lo or 0
   hi = hi or 1
   Seed = (16807 * Seed) % 2147483647
   return lo + (hi - lo) * Seed / 2147483647
 
-def rint(lo, hi):
+
+def rint(lo=0, hi=1):
   return math.floor(0.5 + rand(lo, hi))
 
-def rnd(n, nPlaces):
-  x = nPlaces or 3
+def rnd(n, nPlaces=2):
+  x = nPlaces or 2
   mult = 10**x
   return math.floor(n * mult + 0.5) / mult
 
 def push(t, x):
-    t[1+len(t)] = x
+    t.append(x)
+    # t[1+len(t)] = x
     return x
 
 def cosine(a, b, c):
@@ -140,3 +144,33 @@ def repgrid(sFile, t, rows, cols):
   show(rows.cluster())
   show(cols.cluster())
   repPlace(rows)
+
+
+def itself(x):
+  return x
+
+
+def cliffsDelta(ns1, ns2):
+    if len(ns1) > 256:
+        ns1 = many(ns1, 256)
+    if len(ns2) > 256:
+        ns2 = many(ns2, 256)
+    if len(ns1) > 10 * len(ns2):
+        ns1 = many(ns1, 10 * len(ns2))
+    if len(ns2) > 10 * len(ns1):
+        ns2 = many(ns2, 10 * len(ns1))
+    n, gt, lt = 0, 0, 0
+    for _, x in enumerate(ns1):
+        for _, y in enumerate(ns2):
+            n += 1
+            if x > y:
+                gt += 1
+            if x < y:
+                lt += 1
+    return abs(lt - gt)/n > 0.147
+
+def diffs(nums1, nums2):
+    def kap(nums1, func):
+        return [func(k, nums) for k, nums in enumerate(nums1)]
+
+    return kap(nums1, lambda k, nums: (cliffsDelta(nums["has"], nums2[k]["has"]), nums["txt"]))
