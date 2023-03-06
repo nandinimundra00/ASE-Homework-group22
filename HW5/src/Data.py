@@ -7,18 +7,18 @@ from operator import itemgetter
 from collections.abc import Iterable
 
 class DATA:
-   
+
     def __init__(self, src):
         self.rows = []
         self.cols = None
         # self.halfCalls = 0
-        fun = lambda x: self.add(x)
+        def fun(x): return self.add(x)
         if type(src) == str:
             self.csv(src)
         else:
             for row in src:
                 self.add(row)
-        
+
     def add(self, t):
         if self.cols:
             t = t if hasattr(t, "cells") else ROW(t)
@@ -98,15 +98,16 @@ class DATA:
         rows = rows if rows else self.rows
         cols = cols if cols else self.cols.x
         node = {"data": self.clone(rows)}
-        
+
         if len(rows) >= 2:
-            left, right, node["A"], node["B"], node["mid"], node["C"] = self.half(rows, cols, above)
+            left, right, node["A"], node["B"], node["mid"], node["C"] = self.half(
+                rows, cols, above)
             node["left"] = self.cluster(left, cols, node["A"])
             node["right"] = self.cluster(right, cols, node["B"])
         return node
-        
+
     def furthest(self, row1, rows, cols=None):
-        t = self.around(row1, rows, cols)        
+        t = self.around(row1, rows, cols)
         return t[-1][0]
 
     def half(self, rows=None, cols=None, above=None):
@@ -117,12 +118,12 @@ class DATA:
         def rint1(lo, hi):
             return math.floor(0.5 + rand1(lo, hi))
         def rand1(lo, hi):
-            Seed =  93716211
+            Seed = 93716211
             lo = lo or 0
             hi = hi or 1
             Seed = (16807 * Seed) % 2147483647
             return lo + (hi - lo) * Seed / 2147483647
-            
+
         def cosine(a, b, c):
             den = 1 if c == 0 else 2 * c
             x1 = (a**2 + c**2 - b**2) / den
@@ -130,11 +131,11 @@ class DATA:
             y = abs((a**2 - x2**2)) ** 0.5
             return x2, y
         def project(row):
-            x, y  = cosine(dist2(row, A), dist2(row, B), c)
+            x, y = cosine(dist2(row, A), dist2(row, B), c)
             row.x = x or row.x
             row.y = y or row.y
             return {'row': row, 'x': x, 'y': y}
-        def dist2(row1, row2, cols=None):         
+        def dist2(row1, row2, cols=None):
             return self.dist(row1, row2, cols)
         rows = rows or self.rows
         A = any(rows)
@@ -150,6 +151,3 @@ class DATA:
             else:
                 right.append(tmp["row"])
         return left, right, A, B, mid, c
-
-    
-   
