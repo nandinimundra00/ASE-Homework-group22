@@ -1,7 +1,6 @@
 import math
 import random
-from src.Num import *
-
+from src.Num import NUM
 
 def erf(x):
     a1 =  0.254829592
@@ -59,7 +58,7 @@ def add(i, x):
     i.sd = 0  if i.n<2 else math.sqrt(i.m2 / (i.n - 1))
 
 def delta(i, other):
-    e = 1E-32
+    e =   1E-32
     y = i
     z = other
     return abs(y.mu - z.mu)/(math.sqrt(e + y.sd ** 2 / y.n + z.sd ** 2 / z.n))
@@ -89,8 +88,14 @@ def bootstrap(y0, z0):
     tobs = delta(y, z)
     n = 0
     for i in range(512):
-        if(delta(NUM(samples(yhat))), NUM(samples(zhat)) > tobs):
-           n = n + 1
+        i = NUM()
+        other = NUM()
+        for y in samples(yhat):
+            add(i, y)
+        for z in samples(zhat):
+            add(other, z)
+        if delta(i, other) > tobs:
+            n = n + 1
     return n/512 >= 0.05
 
 def RX(t, s):
