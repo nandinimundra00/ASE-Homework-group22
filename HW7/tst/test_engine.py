@@ -123,4 +123,73 @@ def run_tests():
     print(rx['name'],rx['rank'],rx['show'])  
     
   eg("five", "check five", check_five)
+
+  def check_six():
+    for rx in tiles(scottKnot(
+      [RX({101,100,99,101,99.5,101,100,99,101,99.5},"rx1"),
+      RX({101,100,99,101,100,101,100,99,101,100},"rx2"),
+      RX({101,100,99.5,101,99,101,100,99.5,101,99},"rx3"),
+      RX({101,100,99,101,100,101,100,99,101,100},"rx4")])):
+      print(rx['name'],rx['rank'],rx['show'])
+  eg("six", "check six", check_six)
+
+  def check_tiles():
+    rxs,a,b,c,d,e,f,g,h,j,k=[],[],[],[],[],[],[],[],[],[],[]
+    for _ in range(1,1001):
+        a.append(gaussian(10,1))
+    for _ in range(1,1001):
+        b.append(gaussian(10.1,1))
+    for _ in range(1,1001):
+        c.append(gaussian(20,1))
+    for _ in range(1,1001):
+        d.append(gaussian(30,1))
+    for _ in range(1,1001):
+        e.append(gaussian(30.1,1))
+    for _ in range(1,1001):
+        f.append(gaussian(10,1))
+    for _ in range(1,1001):
+        g.append(gaussian(10,1))
+    for _ in range(1,1001):
+        h.append(gaussian(40,1))
+    for _ in range(1,1001):
+        j.append(gaussian(40,3))
+    for _ in range(1,1001):
+        k.append(gaussian(10,1))
+    for k,v in enumerate([a,b,c,d,e,f,g,h,j,k]):
+        rxs.append(RX(v,"rx" + str (k+1) ))
+    rxs = rxs_sort(rxs)
+    for rx in tiles(rxs):
+        print("",rx['name'],rx['show'])
+
+  eg("tiles", "check tiles", check_tiles)
+
+  def check_sk():
+      rxs,a,b,c,d,e,f,g,h,j,k=[],[],[],[],[],[],[],[],[],[],[]
+      for _ in range(1,1001):
+          a.append(gaussian(10,1))
+      for _ in range(1,1001):
+          b.append(gaussian(10.1,1))
+      for _ in range(1,1001):
+          c.append(gaussian(20,1))
+      for _ in range(1,1001):
+          d.append(gaussian(30,1))
+      for _ in range(1,1001):
+          e.append(gaussian(30.1,1))
+      for _ in range(1,1001):
+          f.append(gaussian(10,1))
+      for _ in range(1,1001):
+          g.append(gaussian(10,1))
+      for _ in range(1,1001):
+          h.append(gaussian(40,1))
+      for _ in range(1,1001):
+          j.append(gaussian(40,3))
+      for _ in range(1,1001):
+          k.append(gaussian(10,1))
+      for k,v in enumerate([a,b,c,d,e,f,g,h,j,k]):
+          rxs.append(RX(v,"rx" + str(k + 1)))
+      for rx in tiles(scottKnot(rxs)):
+          print("",rx['rank'],rx['name'],rx['show'])
+
+  eg("sk", "check sk", check_sk)
+
   main(the, getConstant("help"), egs)

@@ -99,7 +99,7 @@ def bootstrap(y0, z0):
     return n/512 >= 0.05
 
 def RX(t, s):
-    t.sort()
+    t = sorted(t)
     return {"name": s or "", "rank": 0, "n": len(t), "show": "", "has": t}
 def mid(t):
   t= t['has'] if t['has'] else t
@@ -190,6 +190,6 @@ def tiles(rxs):
     u[C] = "*"
     x = []
     for i in [a,b,c,d,e]:
-        x.append("%6.2f".format(i))
+        x.append("{:6.2f}".format(i))
     rx['show'] = ''.join(u) + str(x)
   return rxs
