@@ -75,7 +75,7 @@ def bootstrap(y0, z0):
         add(y, y1)
     for z1 in z0:
         add(x, z1)
-        add(y, z1)
+        add(z, z1)
 
     xmu = x.mu
     ymu = y.mu
