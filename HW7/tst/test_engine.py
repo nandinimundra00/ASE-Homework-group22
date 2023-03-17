@@ -65,5 +65,36 @@ def run_tests():
     print(n.n, n.mu, n.sd)
 
   eg("gauss", "check gaussian", check_gauss)
+  def check_bootmu():
+    a = []
+    b = []
+    for i in range(1, 100):
+      a.append(gaussian(10, 1))
+    print("","mu","sd","cliffs","boot","both")
+    print("","--","--","------","----","----")
+    for mu in np.linspace(10,11,11):
+      b=[]
+      for i in range(1,100+1):
+          b.append(gaussian(mu,1))
+      cl=cliffsDelta(a,b)
+      bs=bootstrap(a,b)
+      print("",mu,1,cl,bs,cl and bs)  
+  eg("bootmu", "check bootmu", check_bootmu)
 
+  def check_basic():
+    print("\t\ttruee", bootstrap( {8, 7, 6, 2, 5, 8, 7, 3}, 
+                                {8, 7, 6, 2, 5, 8, 7, 3}),
+                cliffsDelta( {8, 7, 6, 2, 5, 8, 7, 3}, 
+                            {8, 7, 6, 2, 5, 8, 7, 3}))
+    print("\t\tfalse", bootstrap(  {8, 7, 6, 2, 5, 8, 7, 3},  
+                                    {9, 9, 7, 8, 10, 9, 6}),
+                cliffsDelta( {8, 7, 6, 2, 5, 8, 7, 3},  
+                            {9, 9, 7, 8, 10, 9, 6})) 
+    print("\t\tfalse", 
+                    bootstrap({0.34, 0.49, 0.51, 0.6,   .34,  .49,  .51, .6}, 
+                                {0.6,  0.7,  0.8,  0.9,   .6,   .7,   .8,  .9}),
+                    cliffsDelta({0.34, 0.49, 0.51, 0.6,   .34,  .49,  .51, .6}, 
+                                {0.6,  0.7,  0.8,  0.9,   .6,   .7,   .8,  .9})
+    )
+  eg("basic", "check basic", check_basic)
   main(the, getConstant("help"), egs)
