@@ -20,6 +20,14 @@ src.Num module
    :undoc-members:
    :show-inheritance:
 
+src.add module
+--------------
+
+.. automodule:: src.add
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 src.all\_functions module
 -------------------------
 
