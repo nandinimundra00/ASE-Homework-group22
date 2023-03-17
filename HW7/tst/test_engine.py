@@ -2,6 +2,7 @@ from src.Num import *
 from src.consts import *
 from src.all_functions import *
 from src.Misc import *
+import numpy as np
 global the
 def run_tests():
 
