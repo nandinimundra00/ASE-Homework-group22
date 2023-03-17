@@ -59,7 +59,7 @@ def add(i, x):
     i.sd = 0  if i.n<2 else math.sqrt(i.m2 / (i.n - 1))
 
 def delta(i, other):
-    e = 1*E - 32
+    e = 1E-32
     y = i
     z = other
     return abs(y.mu - z.mu)/(math.sqrt(e + y.sd ** 2 / y.n + z.sd ** 2 / z.n))
@@ -175,7 +175,7 @@ def tiles(rxs):
             return t[of(len(t) * x // 1, len(t) - 1)]
         
         def pos(x):
-            return floor(of(40 * (x - lo) / (hi - lo + (1*E - 32)) // 1, 40))
+            return floor(of(40 * (x - lo) / (hi - lo + (1E-32)) // 1, 40))
         
         for i in range(40):
             u.append(" ")
