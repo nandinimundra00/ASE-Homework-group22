@@ -98,4 +98,29 @@ def run_tests():
                                 {0.6,  0.7,  0.8,  0.9,   .6,   .7,   .8,  .9})
     )
   eg("basic", "check basic", check_basic)
+  def check_pre():
+    print("\neg3")
+    d = 1
+    for i in range(1, 10):
+      t1 = []
+      t2 = []
+      for j in range(1,33):
+          t1.append(gaussian(10,1))
+          t2.append(gaussian(d * 10,1))
+      val = True if d<1.1 else False
+      print("\t",d,val,bootstrap(t1,t2),bootstrap(t1,t1))
+      d = round(d + 0.05, 2)
+
+  eg("pre", "check pre", check_pre)
+  
+  def check_five():
+   for rx in tiles(scottKnot(
+         [RX([0.34,0.49,0.51,0.6,.34,.49,.51,.6],"rx1"),
+         RX([0.6,0.7,0.8,0.9,.6,.7,.8,.9],"rx2"),
+         RX([0.15,0.25,0.4,0.35,0.15,0.25,0.4,0.35],"rx3"),
+         RX([0.6,0.7,0.8,0.9,0.6,0.7,0.8,0.9],"rx4"),
+         RX([0.1,0.2,0.3,0.4,0.1,0.2,0.3,0.4],"rx5")])):
+    print(rx['name'],rx['rank'],rx['show'])  
+    
+  eg("five", "check five", check_five)
   main(the, getConstant("help"), egs)

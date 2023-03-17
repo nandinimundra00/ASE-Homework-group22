@@ -101,21 +101,14 @@ def bootstrap(y0, z0):
 def RX(t, s):
     t.sort()
     return {"name": s or "", "rank": 0, "n": len(t), "show": "", "has": t}
-
 def mid(t):
-    if hasattr(t, "has"):
-        t = t["has"]
-    else:
-        t = t
-    n = len(t)//2
-    return len(t) % 2 == 0 and (t[n] + t[n + 1]) / 2 or t[n + 1]
+  t= t['has'] if t['has'] else t
+  n = (len(t)-1)//2
+  return (t[n] +t[n+1])/2 if len(t)%2==0 else t[n+1]
 
 def div(t):
-    if hasattr(t, "has"):
-        t = t["has"]
-    else:
-        t = t
-    return (t[len(t) * 9 // 10] - t[len(t) * 1 // 10]) / 2.56    
+  t= t['has'] if t['has'] else t
+  return (t[ len(t)*9//10 ] - t[ len(t)*1//10 ])/2.56 
 
 def merge(rx1, rx2):
     rx3 = RX([], rx1["name"])
@@ -126,75 +119,77 @@ def merge(rx1, rx2):
     rx3["n"] = len(rx3["has"])
     return rx3
 
-def scottKnot(rxs):
-    def merges(i, j):
-        out = RX([], rxs[i]["name"])
-        for k in range(i, j + 1):
-            out = merge(out, rxs[j])
-        return out
-    def same(lo, cut, hi):
-        l = merges(lo, cut)
-        r = merges(cut + 1, hi)
-        return cliffsDelta(l["has"], r["has"]) and bootstrap(l["has"], r["has"])
-    def recurse(lo, hi, rank):
-        b4 = merges(lo, hi)
-        best = 0
-        for j in range(lo, hi + 1):
-            if j < hi:
-                l = merges(lo, j)
-                r = merges(j + 1, hi)
-                now = (l["n"] * (mid(1) - mid(b4)) ** 2 + r["n"] * (mid(r) - mid(b4)) ** 2) / (l["n"] + r["n"])
-                if now > best:
-                    if abs(mid(l) - mid(r)) > cohen:
-                        cut, best = j, now
-        if cut and not same(lo, cut, hi):
-            rank = recurse(lo, cut, rank) + 1
-            rank  = recurse(cut + 1, hi, rank)
-        else:
-            for i in range(lo, hi + 1):
-                rxs[i]["rank"] = rank
-        return rank
-    rxs.sort(key=lambda x: mid(x))
-    cohen = div(merges(0, len(rxs) - 1)) * 0.35
-    recurse(0, len(rxs) - 1, 1)
+def rxs_sort(rxs):
+    for i,x in enumerate(rxs):
+     for j,y in enumerate(rxs):
+         if mid(x) < mid(y):
+             rxs[j],rxs[i]=rxs[i],rxs[j]
     return rxs
+
+def scottKnot(rxs):
+  def merges(i,j):
+    out = RX([],rxs[i]['name'])
+    for k in range(i, j+1):
+        out = merge(out, rxs[j])
+    return out
+  
+  def same(lo,cut,hi):
+    l= merges(lo,cut)
+    r= merges(cut+1,hi)
+    return cliffsDelta(l['has'], r['has']) and bootstrap(l['has'], r['has'])
+  
+  def recurse(lo,hi,rank):
+    b4 = merges(lo,hi)
+    best = 0
+    cut = None
+    for j in range(lo,hi+1):
+      if j < hi:
+        l   = merges(lo,  j)
+        r   = merges(j+1, hi)
+        now = (l['n']*(mid(l) - mid(b4))**2 + r['n']*(mid(r) - mid(b4))**2) / (l['n'] + r['n'])
+        if now > best:
+          if abs(mid(l) - mid(r)) >= cohen:
+            cut, best = j, now
+    if cut != None and not same(lo,cut,hi):
+      rank = recurse(lo,    cut, rank) + 1
+      rank = recurse(cut+1, hi,  rank) 
+    else:
+      for i in range(lo,hi+1):
+        rxs[i]['rank'] = rank
+    return rank
+  rxs = rxs_sort(rxs)
+  cohen = div(merges(0,len(rxs)-1)) * 0.35
+  recurse(0, len(rxs)-1, 1)
+  return rxs
 
 def tiles(rxs):
-    huge = float("inf")
-    minF = min
-    maxF = max
-    floor = math.floor
-    lo = huge
-    hi = -huge
-    for rx in rxs:
-        lo = minF(lo, rx["has"][0])
-        hi = maxF(hi, rx["has"][-1])
+  huge = float('inf')
+  lo,hi = huge, float('-inf')
+  for rx in rxs: 
+    lo,hi = min(lo,rx['has'][0]), max(hi, rx['has'][len(rx['has'])-1])
+  for rx in rxs:
+    t,u = rx['has'],[]
+    def of(x,most):
+        return int(max(0, min(most, x)))
     
-    for rx in rxs:
-        t = rx["has"]
-        u = []
-        def of(x, most):
-            return max(1, min(most, x))
-        
-        def at(x):
-            return t[of(len(t) * x // 1, len(t) - 1)]
-        
-        def pos(x):
-            return floor(of(40 * (x - lo) / (hi - lo + (1E-32)) // 1, 40))
-        
-        for i in range(40):
-            u.append(" ")
+    def at(x):
+        return t[of(len(t)*x//1, len(t))]
 
-        a, b, c, d, e= at(.1), at(.3), at(.5), at(.7), at(.9)
-        A, B, C, D, E= pos(a), pos(b), pos(c), pos(d), pos(e)
-        for i in range(A, B + 1):
-            u[i] = "-"
-        for i in range(D, E + 1):
-            u[i] = "-"
-        u[40//2] = "|"
-        u[C] = "*"
-        rx["show"] = "".join(u) + " { " + "%6.2f".format(a) + "}"
-        for x in (b, c, d, e):
-            rx["show"] = rx["show"] +  ", " + "%6.2f".format(x)
-        rx["show"] = rx["show"] +  " }"
-    return rxs
+    def pos(x):
+        return math.floor(of(40*(x-lo)/(hi-lo+1E-32)//1, 40))
+
+    for i in range(0,40+1):
+        u.append(" ")
+    a,b,c,d,e= at(.1), at(.3), at(.5), at(.7), at(.9) 
+    A,B,C,D,E= pos(a), pos(b), pos(c), pos(d), pos(e)
+    for i in range(A,B+1):
+        u[i]="-"
+    for i in range(D,E+1):
+        u[i]="-"
+    u[40//2] = "|" 
+    u[C] = "*"
+    x = []
+    for i in [a,b,c,d,e]:
+        x.append("%6.2f".format(i))
+    rx['show'] = ''.join(u) + str(x)
+  return rxs
