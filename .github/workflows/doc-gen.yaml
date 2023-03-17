@@ -14,7 +14,7 @@ on:
   - pull_request
 
 env:
-  MODULE_PATHS: HW5/src HW5/tst HW5/data
+  MODULE_PATHS: HW7/src HW7/tst HW5/data
   
 jobs:
   build:
@@ -40,13 +40,12 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with test_engine
         run: |
-          cd HW5
-          python -m src.main --go sym
-          python -m src.main --go rand
+          cd HW7
+          python -m src.main --go num
           python -m src.main --go the
       - name: Run tests
         run: |
-          cd HW5
+          cd HW7
           python -m coverage run -m src.main --go all
           codeCoverageStr=$(python -m coverage report | grep 'TOTAL')
           codeCoverage=$(echo $codeCoverageStr | awk '{print $4}')
