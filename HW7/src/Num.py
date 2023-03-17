@@ -1,4 +1,4 @@
-from src.all_functions import *
+from src.add import *
 class NUM():
   def __init__(self, t = []):
     self.n = 0
